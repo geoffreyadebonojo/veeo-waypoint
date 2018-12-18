@@ -5,6 +5,15 @@
         1,
         null
       ],
+      "/Users/rajaaboulassouak/turing/3module2/week4/veeo-waypoint/app/models/user.rb": [
+        1,
+        null
+      ],
+      "/Users/rajaaboulassouak/turing/3module2/week4/veeo-waypoint/app/models/application_record.rb": [
+        1,
+        1,
+        null
+      ],
       "/Users/rajaaboulassouak/turing/3module2/week4/veeo-waypoint/app/controllers/login_controller.rb": [
         1,
         null,
@@ -19,11 +28,6 @@
       ],
       "/Users/rajaaboulassouak/turing/3module2/week4/veeo-waypoint/app/mailers/application_mailer.rb": [
         0,
-        0,
-        0,
-        0
-      ],
-      "/Users/rajaaboulassouak/turing/3module2/week4/veeo-waypoint/app/models/application_record.rb": [
         0,
         0,
         0
@@ -45,6 +49,6 @@
         0
       ]
     },
-    "timestamp": 1545173868
+    "timestamp": 1545176392
   }
 }
