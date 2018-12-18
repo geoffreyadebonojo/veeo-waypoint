@@ -31,6 +31,8 @@ group :development, :test do
   gem 'webmock'
   gem 'simplecov'
   gem 'vcr'
+  # gem 'selenium-webdriver'
+  # gem 'chromedriver-helper'
 end
 
 group :development do
