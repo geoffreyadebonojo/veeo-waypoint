@@ -1,5 +1,7 @@
 {
   "name": "veeo-waypoint",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "stimulus": "^1.1.0"
+  }
 }
