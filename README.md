@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/wfischer42/veeo-waypoint.svg?branch=master)](https://travis-ci.com/wfischer42/veeo-waypoint)
+
 # README
 
 This README would normally document whatever steps are necessary to get the
