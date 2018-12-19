@@ -8,5 +8,5 @@ RSpec.describe 'User can login' do
     click_on 'Login with Google'
     
     expect(current_path).to eq('/topics')
-  end 
+  end
 end

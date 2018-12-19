@@ -20,6 +20,8 @@
 /node_modules
 /yarn-error.log
 
+/spec/examples.txt
+
 /public/assets
 .byebug_history
 
@@ -32,7 +34,8 @@
 /node_modules
 yarn-debug.log*
 .yarn-integrity
-/coverage
+/coverage/.resultset.json
+/coverage/index.html
 
 # Ignore application configuration
 /config/application.yml
