@@ -28,7 +28,6 @@
 
 # Ignore simplecov coverage
 /coverage
-/config/application.yml
 /public/packs
 /public/packs-test
 /coverage/public/packs
@@ -40,3 +39,6 @@ yarn-debug.log*
 
 # Ignore application configuration
 /config/application.yml
+
+# Ignore RSpec examples file
+/spec/examples.txt
