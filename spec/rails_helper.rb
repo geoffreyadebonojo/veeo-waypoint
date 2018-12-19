@@ -16,7 +16,6 @@ end
 
 RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
-  config.include FactoryBot::Syntax::Methods
   config.use_transactional_fixtures = true
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
@@ -42,3 +41,16 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
    end
 end
+
+OmniAuth.config.test_mode = true
+omniauth_hash = { 'provider' => 'google_oauth2',
+                  'uid'      => '12345',
+                  'info'     => {
+                                 'first_name'  => 'test_name',
+                                 'last_name'   => 'test_email',
+                                 'email'       => 'test@email.com',
+                                 'image'       => 'http://testimage.jpg'
+                                },
+                }.with_indifferent_access
+
+OmniAuth.config.add_mock(:google_oauth2, omniauth_hash)
