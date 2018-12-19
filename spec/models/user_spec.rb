@@ -13,7 +13,7 @@ RSpec.describe User, type: :model do
                    google_id: 123,
                    first_name: 'Hans',
                    last_name: 'Wurst',
-                   email: 'hans@wurst', 
+                   email: 'hans@wurst',
                    image_url: 'http://testimage.jpg'
                   }
 
@@ -25,5 +25,19 @@ RSpec.describe User, type: :model do
     expect(user.last_name).to eq('Wurst')
     expect(user.email).to eq('hans@wurst')
     expect(user.image_url).to eq('http://testimage.jpg')
+  end
+
+  context 'Validations' do
+    it { should have_many(:topics) }
+  end
+
+  context 'instance methods' do
+    let(:user) { create(:user) }
+    let(:topics) { create_list(:topic, 2, user: user) }
+
+    describe '.topics' do
+      subject { user.topics }
+      it { is_expected.to eq(topics) }
+    end
   end
 end

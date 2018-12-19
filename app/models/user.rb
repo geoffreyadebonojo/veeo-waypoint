@@ -1,5 +1,7 @@
 class User < ApplicationRecord
-  
+
+  has_many :topics
+
   def self.find_or_create_from_auth(auth)
 		where(provider: auth.provider, google_id: auth.uid).first_or_initialize.tap do |user|
 			user.provider = auth.provider
@@ -11,4 +13,7 @@ class User < ApplicationRecord
 			user.save!
 		end
 	end
+  # def topics
+    #code
+  # end
 end

@@ -5,7 +5,7 @@ class User::TopicsController < ApplicationController
   end
 
   def index
-    # @facade =
+    @facade = DashboardFacade.new(current_user)
   end
 
   def show

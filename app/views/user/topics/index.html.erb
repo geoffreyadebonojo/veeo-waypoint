@@ -1,4 +1,4 @@
 <%# TODO: Refactor to use presenter pattern %>
-<% @facade.topics do |topic|%>
+<% @facade.topics.each do |topic|%>
   <%=  topic.name %>
 <% end %>

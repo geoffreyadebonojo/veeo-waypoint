@@ -5,8 +5,8 @@ Rails.application.routes.draw do
     get 'topics/show'
   end
 
-  root 'home#index'
   
+  root 'home#index'
   get '/dashboard', to: 'user/topics#index'
 
   get 'login', to: redirect('/auth/google_oauth2'), as: 'login'
