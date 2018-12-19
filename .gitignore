@@ -27,4 +27,12 @@
 /config/master.key
 
 # Ignore simplecov coverage
-/coverage
+/config/application.yml
+/public/packs
+/public/packs-test
+/coverage/public/packs
+/node_modules
+yarn-debug.log*
+.yarn-integrity
+
+/spec/cassettes

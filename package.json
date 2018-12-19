@@ -2,6 +2,10 @@
   "name": "veeo-waypoint",
   "private": true,
   "dependencies": {
+    "@rails/webpacker": "3.5",
     "stimulus": "^1.1.0"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "2.11.2"
   }
 }

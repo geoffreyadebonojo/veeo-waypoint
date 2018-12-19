@@ -15,6 +15,7 @@ gem 'webpacker', '~> 3.5'
 gem 'faraday'
 gem 'figaro'
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'omniauth-google-oauth2'
 # gem 'redis', '~> 4.0'
 # gem 'mini_magick', '~> 4.8'
 # gem 'capistrano-rails', group: :development
