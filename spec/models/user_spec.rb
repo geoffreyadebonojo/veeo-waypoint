@@ -1,5 +1,29 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'exists' do
+    attributes = {}
+    user = User.create(attributes)
+
+    expect(user).to be_a(User)
+  end
+
+  it 'has attributes' do
+    attributes = { provider: 'google',
+                   google_id: 123,
+                   first_name: 'Hans',
+                   last_name: 'Wurst',
+                   email: 'hans@wurst', 
+                   image_url: 'http://testimage.jpg'
+                  }
+
+    user = User.create(attributes)
+
+    expect(user.provider).to eq('google')
+    expect(user.google_id).to eq(123)
+    expect(user.first_name).to eq('Hans')
+    expect(user.last_name).to eq('Wurst')
+    expect(user.email).to eq('hans@wurst')
+    expect(user.image_url).to eq('http://testimage.jpg')
+  end
 end

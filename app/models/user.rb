@@ -7,7 +7,7 @@ class User < ApplicationRecord
 			user.first_name = auth.info.first_name
 			user.last_name = auth.info.last_name
 			user.email = auth.info.email
-			user.picture_url = auth.info.image
+			user.image_url = auth.info.image
 			user.save!
 		end
 	end
