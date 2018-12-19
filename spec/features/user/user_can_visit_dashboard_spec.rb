@@ -7,7 +7,6 @@ require 'rails_helper'
 # When I click on a topic, I am taken to its show page
 
 RSpec.describe "User visiting the dashboard path" do
-
   it "can see user's topics" do
     user = create(:user)
     topic_1 = create(:topic, user:user)
@@ -18,8 +17,7 @@ RSpec.describe "User visiting the dashboard path" do
     visit '/dashboard'
 
     expect(page).to have_current_path(dashboard_path)
-    expect(page).to have_content(topic_1.name)
-    expect(page).to have_content(topic_2.name)
+    expect(page).to have_content(topic_1.title)
+    expect(page).to have_content(topic_2.title)
   end
-
 end
