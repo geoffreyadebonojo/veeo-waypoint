@@ -61,11 +61,6 @@
         1,
         1,
         null,
-        null,
-        1,
-        0,
-        0,
-        null,
         null
       ],
       "/Users/rajaaboulassouak/turing/3module2/week4/veeo-waypoint/app/controllers/topics_controller.rb": [
@@ -78,28 +73,28 @@
         null
       ],
       "/Users/rajaaboulassouak/turing/3module2/week4/veeo-waypoint/app/mailers/application_mailer.rb": [
-        0,
-        0,
-        0,
-        0
+        null,
+        null,
+        null,
+        null
       ],
       "/Users/rajaaboulassouak/turing/3module2/week4/veeo-waypoint/app/jobs/application_job.rb": [
-        0,
-        0
+        null,
+        null
       ],
       "/Users/rajaaboulassouak/turing/3module2/week4/veeo-waypoint/app/channels/application_cable/connection.rb": [
-        0,
-        0,
-        0,
-        0
+        null,
+        null,
+        null,
+        null
       ],
       "/Users/rajaaboulassouak/turing/3module2/week4/veeo-waypoint/app/channels/application_cable/channel.rb": [
-        0,
-        0,
-        0,
-        0
+        null,
+        null,
+        null,
+        null
       ]
     },
-    "timestamp": 1545182249
+    "timestamp": 1545182510
   }
 }
