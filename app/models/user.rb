@@ -13,7 +13,4 @@ class User < ApplicationRecord
 			user.save!
 		end
 	end
-  # def topics
-    #code
-  # end
 end

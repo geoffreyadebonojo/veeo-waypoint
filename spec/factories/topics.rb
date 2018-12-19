@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :topic do
-    name { "MyString" }
+    title { "MyString" }
     user
   end
 end

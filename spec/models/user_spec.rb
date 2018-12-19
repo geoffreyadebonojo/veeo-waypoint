@@ -10,7 +10,7 @@ RSpec.describe User, type: :model do
 
   it 'has attributes' do
     attributes = { provider: 'google',
-                   google_id: 123,
+                   google_id: '123',
                    first_name: 'Hans',
                    last_name: 'Wurst',
                    email: 'hans@wurst',
@@ -20,7 +20,7 @@ RSpec.describe User, type: :model do
     user = User.create(attributes)
 
     expect(user.provider).to eq('google')
-    expect(user.google_id).to eq(123)
+    expect(user.google_id).to eq('123')
     expect(user.first_name).to eq('Hans')
     expect(user.last_name).to eq('Wurst')
     expect(user.email).to eq('hans@wurst')

@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2018_12_19_011517) do
   enable_extension "plpgsql"
 
   create_table "topics", force: :cascade do |t|
-    t.string "name"
+    t.string "title"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2018_12_19_011517) do
 
   create_table "users", force: :cascade do |t|
     t.string "provider"
-    t.integer "google_id"
+    t.string "google_id"
     t.string "email"
     t.string "first_name"
     t.string "last_name"
