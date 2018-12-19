@@ -1,16 +1,16 @@
 example_id                                                      | status  | run_time        |
 --------------------------------------------------------------- | ------- | --------------- |
-./spec/features/user/user_can_visit_dashboard_spec.rb[1:1]      | passed  | 0.0585 seconds  |
-./spec/features/user/user_logs_in_via_google_oauth_spec.rb[1:1] | passed  | 0.25652 seconds |
-./spec/helpers/user/topics_helper_spec.rb[1:1]                  | pending | 0.00002 seconds |
+./spec/features/user/user_can_visit_dashboard_spec.rb[1:1]      | passed  | 0.46726 seconds |
+./spec/features/user/user_logs_in_via_google_oauth_spec.rb[1:1] | passed  | 0.05422 seconds |
+./spec/helpers/user/topics_helper_spec.rb[1:1]                  | pending | 0.00001 seconds |
 ./spec/models/topic_spec.rb[1:1]                                | pending | 0.00001 seconds |
-./spec/models/user_spec.rb[1:1]                                 | passed  | 0.0427 seconds  |
-./spec/models/user_spec.rb[1:2]                                 | passed  | 0.02412 seconds |
-./spec/models/user_spec.rb[1:3:1]                               | passed  | 0.01911 seconds |
-./spec/models/user_spec.rb[1:4:1:1]                             | passed  | 0.06083 seconds |
+./spec/models/user_spec.rb[1:1]                                 | passed  | 0.02382 seconds |
+./spec/models/user_spec.rb[1:2]                                 | passed  | 0.02971 seconds |
+./spec/models/user_spec.rb[1:3:1]                               | passed  | 0.02063 seconds |
+./spec/models/user_spec.rb[1:4:1:1]                             | passed  | 0.0303 seconds  |
 ./spec/views/topics/create.html.erb_spec.rb[1:1]                | pending | 0.00001 seconds |
-./spec/views/topics/index.html.erb_spec.rb[1:1]                 | pending | 0.00001 seconds |
-./spec/views/topics/show.html.erb_spec.rb[1:1]                  | pending | 0.00001 seconds |
+./spec/views/topics/index.html.erb_spec.rb[1:1]                 | pending | 0.00002 seconds |
+./spec/views/topics/show.html.erb_spec.rb[1:1]                  | pending | 0 seconds       |
 ./spec/views/user/topics/create.html.erb_spec.rb[1:1]           | pending | 0.00001 seconds |
 ./spec/views/user/topics/index.html.erb_spec.rb[1:1]            | pending | 0.00001 seconds |
-./spec/views/user/topics/show.html.erb_spec.rb[1:1]             | pending | 0.00002 seconds |
+./spec/views/user/topics/show.html.erb_spec.rb[1:1]             | pending | 0 seconds       |
