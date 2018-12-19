@@ -31,6 +31,7 @@ group :development, :test do
   gem 'webmock'
   gem 'simplecov'
   gem 'vcr'
+  gem 'factory_bot_rails'
   # gem 'selenium-webdriver'
   # gem 'chromedriver-helper'
 end
