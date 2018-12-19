@@ -1,9 +1,10 @@
 class User::TopicsController < ApplicationController
+  before_action :authenticate
+
   def create
   end
 
   def index
-    binding.pry
     # @facade =
   end
 

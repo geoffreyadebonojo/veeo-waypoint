@@ -1,5 +1,14 @@
-example_id                                                 | status | run_time        |
----------------------------------------------------------- | ------ | --------------- |
-./spec/features/user_logs_in_via_google_oauth_spec.rb[1:1] | passed | 2.02 seconds    |
-./spec/models/user_spec.rb[1:1]                            | passed | 0.11454 seconds |
-./spec/models/user_spec.rb[1:2]                            | passed | 0.27933 seconds |
+example_id                                                 | status  | run_time        |
+---------------------------------------------------------- | ------- | --------------- |
+./spec/features/user/user_can_visit_dashboard_spec.rb[1:1] | failed  | 0.15829 seconds |
+./spec/features/user_logs_in_via_google_oauth_spec.rb[1:1] | failed  | 0.35126 seconds |
+./spec/helpers/user/topics_helper_spec.rb[1:1]             | pending | 0.00001 seconds |
+./spec/models/topic_spec.rb[1:1]                           | pending | 0.00001 seconds |
+./spec/models/user_spec.rb[1:1]                            | passed  | 0.03197 seconds |
+./spec/models/user_spec.rb[1:2]                            | passed  | 0.03503 seconds |
+./spec/views/topics/create.html.erb_spec.rb[1:1]           | pending | 0.00001 seconds |
+./spec/views/topics/index.html.erb_spec.rb[1:1]            | pending | 0.00001 seconds |
+./spec/views/topics/show.html.erb_spec.rb[1:1]             | pending | 0.00001 seconds |
+./spec/views/user/topics/create.html.erb_spec.rb[1:1]      | pending | 0.00002 seconds |
+./spec/views/user/topics/index.html.erb_spec.rb[1:1]       | pending | 0.00001 seconds |
+./spec/views/user/topics/show.html.erb_spec.rb[1:1]        | pending | 0.00001 seconds |
