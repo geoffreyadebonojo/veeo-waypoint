@@ -28,7 +28,6 @@
 
 # Ignore simplecov coverage
 /coverage
-/config/application.yml
 /public/packs
 /public/packs-test
 /coverage/public/packs
