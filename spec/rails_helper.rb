@@ -41,3 +41,16 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
    end
 end
+
+OmniAuth.config.test_mode = true
+omniauth_hash = { 'provider' => 'google_oauth2',
+                  'uid'      => '12345',
+                  'info'     => {
+                                 'first_name'  => 'test_name',
+                                 'last_name'   => 'test_email',
+                                 'email'       => 'test@email.com',
+                                 'image'       => 'http://testimage.jpg'
+                                },
+                }.with_indifferent_access
+
+OmniAuth.config.add_mock(:google_oauth2, omniauth_hash)
