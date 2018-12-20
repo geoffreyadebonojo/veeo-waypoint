@@ -14,7 +14,7 @@ RSpec.feature "User visiting topic index page", type: :feature do
     visit '/topics'
     within(first(".topic")) do
       fill_in 'question[text]', with: 'What is a query'
-      click_on 'Submit'
+      click_on 'Save'
     end
 
     expect(current_path).to eq('/topics')
