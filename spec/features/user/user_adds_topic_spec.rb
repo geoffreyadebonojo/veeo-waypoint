@@ -4,7 +4,7 @@ RSpec.feature "User visiting topic index page", type: :feature do
   it 'can add a topic' do
 
     Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:google]
-
+    
     visit '/'
     click_on 'Login with Google'
 

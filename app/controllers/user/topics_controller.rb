@@ -1,16 +1,16 @@
 class User::TopicsController < ApplicationController
   before_action :authenticate
 
-  def create
-    @topic = current_user.topics.create(topic_params)
-    redirect_to topics_path
-  end
-
   def index
     @facade = TopicsFacade.new(current_user)
   end
 
   def show
+  end
+  
+  def create
+    current_user.topics.create(topic_params)
+    redirect_to topics_path
   end
   
   private 

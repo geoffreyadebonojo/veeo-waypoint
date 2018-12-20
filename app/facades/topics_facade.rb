@@ -1,4 +1,5 @@
 class TopicsFacade
+  
   def initialize(user)
     @user = user
   end
@@ -7,7 +8,6 @@ class TopicsFacade
     @user.topics
   end
 
-  
   def new_topic
    Topic.new
   end
