@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-   scope module: :user do
+  scope module: :user do
     resources :topics, only: [:show, :index, :create] do
       resources :questions, only: [:show, :index, :create]
     end
