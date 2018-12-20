@@ -12,4 +12,4 @@ class User::QuestionsController < ApplicationController
   def question_params
     params.require(:question).permit(:text)
   end
-end
+endgit 
