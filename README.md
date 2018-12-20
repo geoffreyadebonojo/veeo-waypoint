@@ -1,28 +1,5 @@
 [![Build Status](https://travis-ci.com/wfischer42/veeo-waypoint.svg?branch=master)](https://travis-ci.com/wfischer42/veeo-waypoint)
+[![Maintainability](https://api.codeclimate.com/v1/badges/f02ff07767c3af9f37ba/maintainability)](https://codeclimate.com/github/wfischer42/veeo-waypoint/maintainability)
 
 [Heroku Waypoint](https://heroku-waypoint.herokuapp.com/)
 
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
