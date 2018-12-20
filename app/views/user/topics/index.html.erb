@@ -12,3 +12,8 @@
     <% end %>
   </div>
 <% end %>
+
+<%= form_for @facade.new_topic do |f| %>
+  <%= f.text_field :title, placeholder: 'Health' %>
+  <%= f.submit 'Submit' %>
+<% end %>

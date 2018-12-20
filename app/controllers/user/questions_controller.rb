@@ -1,5 +1,6 @@
 class User::QuestionsController < ApplicationController
-
+  before_action :authenticate
+  
   def create
     topic = Topic.find(params[:topic_id])
     valid_user = (current_user == topic.user)
