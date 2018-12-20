@@ -14,9 +14,9 @@ RSpec.describe "User visiting the dashboard path" do
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-    visit '/dashboard'
+    visit '/topics'
 
-    expect(page).to have_current_path(dashboard_path)
+    expect(page).to have_current_path(topics_path)
     expect(page).to have_content(topic_1.title)
     expect(page).to have_content(topic_2.title)
   end
