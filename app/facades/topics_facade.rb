@@ -1,4 +1,4 @@
-class DashboardFacade
+class TopicsFacade
   def initialize(user)
     @user = user
   end
@@ -7,4 +7,7 @@ class DashboardFacade
     @user.topics
   end
 
+  def new_question
+    Question.new
+  end
 end

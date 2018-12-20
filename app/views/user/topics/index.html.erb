@@ -1,4 +1,14 @@
 <%# TODO: Refactor to use presenter pattern %>
 <% @facade.topics.each do |topic|%>
-  <%=  topic.title %>
+  <div class="topic">
+    <%= topic.title %>
+    <%= form_for [topic, @facade.new_question] do |f| %>
+      <%= f.text_field :text, placeholder: "Who framed Roger Rabbit?" %>
+      <%= f.submit "Submit"%>
+    <% end %>
+    <hr />
+    <% topic.questions.each do |question| %>
+      <%= question.text %>
+    <% end %>
+  </div>
 <% end %>

@@ -7,6 +7,6 @@ RSpec.describe 'User can login' do
     visit '/'
     click_on 'Login with Google'
 
-    expect(current_path).to eq('/dashboard')
+    expect(current_path).to eq('/topics')
   end
 end
