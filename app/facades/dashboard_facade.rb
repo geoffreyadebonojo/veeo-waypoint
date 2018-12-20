@@ -6,5 +6,8 @@ class DashboardFacade
   def topics
     @user.topics
   end
-
+  
+  def new_topic
+   Topic.new
+  end
 end
