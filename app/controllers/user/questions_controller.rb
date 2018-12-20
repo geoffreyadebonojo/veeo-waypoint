@@ -1,6 +1,6 @@
 class User::QuestionsController < ApplicationController
   before_action :authenticate
-  
+
   def create
     topic = Topic.find(params[:topic_id])
     valid_user = (current_user == topic.user)
@@ -13,4 +13,4 @@ class User::QuestionsController < ApplicationController
   def question_params
     params.require(:question).permit(:text)
   end
-endgit 
+end 
