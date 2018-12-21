@@ -1,13 +1,17 @@
 <div class="centered-content">
-  <h1> Search Result for <%= @facade.question %></h1>
+  <h1> Search Results for<br /> "<%= @facade.question %>"</h1>
   <ul>
-    <% @facade.results.each do |result| %>
-      <li>
-        <div class="result">
-          <%= result.title %>
-          <%= result.url %>
-        </div>
-      </li>
+    <% cache("results-#{@facade.question}") do %>
+      <% @facade.results.each do |result| %>
+        <li>
+          <div class="result">
+            <%= result.title %><br />
+            <%= result.url %><br />
+            <%= result.snippet %><br />
+          </div>
+          <hr>
+        </li>
+      <% end %>
     <% end %>
   </ul>
 </div>
