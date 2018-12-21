@@ -1,0 +1,13 @@
+<div class="centered-content">
+  <h1> Search Result for <%= @facade.question %></h1>
+  <ul>
+    <% @facade.results.each do |result| %>
+      <li>
+        <div class="result">
+          <%= result.title %>
+          <%= result.url %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
