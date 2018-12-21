@@ -1,33 +1,26 @@
-[] Wrote Tests
-[] Implemented
-[] Reviewed
+## Type of change
+__X__  New feature
+____  Bug Fix
+____  Refactor
 
-# Implements/Fixes:
-* description
+# Description
+[Summary of changes in your commits]
 closes #
 
-# Necessary checkmarks:
-- [] All Tests are Passing
-- [] The code will run locally
+# Code Check
+- [ ] Wrote Tests
+- [ ] Implemented
+- [ ] Reviewed (by Someone Else)
 
-## Type of change
-- [] New feature
-- [] Bug Fix
+# Functionality
+- [ ] All Tests are Passing
+- [ ] The code will run locally
+- [ ] This broke nothing
+- [ ] The code is fully tested (greater than 98% coverage)
+- [ ] There is no unused/commented out code
 
-# Check the correct boxes
-
-- [] This broke nothing
-- [] This broke some stuff
-- [] This broke everything
 
 # Testing Changes
-- [] No Tests have been changed
-- [] Some Tests have been changed
-- [] All of the Tests have been changed(Please describe what in the world happened)
-
-# Checklist:
-
-- [] My code has no unused/commented out code
-- [] My code has unused/commented out code
-- [] I have reviewed my code
-- [] I have fully tested my code
+__X__ No Tests have been changed
+____ Some Tests have been changed
+____ All of the Tests have been changed(Please describe what in the world happened)
