@@ -1,2 +1,13 @@
-<h1>User::Topics#show</h1>
-<p>Find me in app/views/user/topics/show.html.erb</p>
+<div class="centered-content">
+  <div class="title">
+    <%= @topic.title %>
+  </div>
+
+
+<div class="list">
+    <% @topic.questions.each do |question| %>
+      <%= question.text %>
+    </div>
+    <% end %>
+
+</div>
