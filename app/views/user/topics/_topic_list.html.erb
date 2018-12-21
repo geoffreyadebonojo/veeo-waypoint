@@ -1,0 +1,15 @@
+<div class="topics">
+  <% topics.each do |topic|%>
+    <div class="topic">
+      <div class="title"><%= topic.title %></div>
+      <%= render '/user/questions/question_form',
+            topic: topic,
+            question: new_question %>
+      </div>
+    </div>
+    <%= render '/user/questions/simple_question_list',
+          topic: topic,
+          questions: topic.questions %>
+    <hr />
+  <% end %>
+</div>

@@ -1,26 +1,10 @@
 <div class="centered-content">
   <h1>Topics</h1>
-  <%= form_for @facade.new_topic do |f| %>
-  <%= f.text_field :title, placeholder: 'Add a Topic' %>
-  <%= f.submit 'Save' %>
-  <% end %>
 
-<% @facade.topics.each do |topic|%>
-  <div class="topic">
-    <div class="title"><%= topic.title %></div>
-    <div class="form-field"><%= form_for [topic, @facade.new_question] do |f| %>
-      <%= f.text_field :text, placeholder: "Ask a new Question" %>
-      <%= f.submit "Save"%>
-    <% end %>
-    </div>
-  </div>
-  <ul>
-  <% topic.questions.each do |question| %>
-    <li><%= question.text %></li>
-  <% end %>
-  </ul>
-  <hr />
-
-<% end %>
-
+  <%= render '/user/topics/new_topic_form',
+        topic: @facade.new_topic %>
+        
+  <%= render '/user/topics/topic_list',
+        topics: @facade.topics,
+        new_question: @facade.new_question %>
 </div>
