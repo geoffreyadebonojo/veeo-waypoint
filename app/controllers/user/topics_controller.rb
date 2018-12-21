@@ -6,15 +6,16 @@ class User::TopicsController < ApplicationController
   end
 
   def show
+    @topic = Topic.find(params[:id])
   end
-  
+
   def create
     current_user.topics.create(topic_params)
     redirect_to topics_path
   end
-  
-  private 
-  
+
+  private
+
   def topic_params
     params.require(:topic).permit(:title)
   end
