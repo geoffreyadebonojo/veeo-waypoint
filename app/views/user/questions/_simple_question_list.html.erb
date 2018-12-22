@@ -2,6 +2,7 @@
   <% questions.each do |question| %>
     <div class="question">
       <li>
+        <%= link_to 'Search', search_path(question: question.text) %>
         <%= question.text %>
       </li>
     </div>
