@@ -6,22 +6,18 @@ class SearchFacade
   end
 
   def results
-    conn = Faraday.new('https://api.cognitive.microsoft.com/') do |faraday|
-      faraday.headers['Ocp-Apim-Subscription-Key'] = ENV['BING_CLIENT_ID']
-      faraday.adapter  Faraday.default_adapter
-    end
-
-    response = conn.get('bing/v7.0/search') do |req|
-      req.params['q'] = @question
-      req.params['count'] = 10
-      req.params['offset'] = 0
-      req.params['mkt'] = 'en-us'
-      req.params['safesearch'] = 'Moderate'
-    end
-
-    data = JSON.parse(response.body, symbolize_names: true)[:webPages][:value]
-    @results = data.map do |raw_result|
+    search_results.map do |raw_result|
       Result.new(raw_result)
     end
+  end
+  
+  private 
+  
+  def search_results
+    @results ||= bing_service.get_results
+  end
+  
+  def bing_service
+    BingService.new(@question)
   end
 end
