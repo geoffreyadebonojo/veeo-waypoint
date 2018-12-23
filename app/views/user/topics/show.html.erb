@@ -8,6 +8,14 @@
           <li>
             <div class="question">
               <%= question.text %>
+              <% question.sources.each do |source| %>
+                <%= source.title %>
+                </br>
+                <%= source.display_url %>
+                </br>
+                <%= source.snippet %>
+                </br>
+              <% end %>
             </div>
           </li>
         <hr />
