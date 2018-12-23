@@ -4,7 +4,6 @@ RSpec.feature "User topic management", type: :feature do
   before do
     stub_oauth_user
     visit '/'
-    binding.pry
     click_on 'Sign in with Google'
     create(:topic, user: User.last)
   end
