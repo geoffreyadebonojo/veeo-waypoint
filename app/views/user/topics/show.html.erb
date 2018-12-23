@@ -1,13 +1,18 @@
 <div class="centered-content">
   <div class="title">
     <%= @topic.title %>
-  </div>
 
-
-<div class="list">
-    <% @topic.questions.each do |question| %>
-      <%= question.text %>
+    <div class="list">
+      <ul>
+        <% @topic.questions.each do |question| %>
+          <li>
+            <div class="question">
+              <%= question.text %>
+            </div>
+          </li>
+        <hr />
+        <% end %>
+      </ul>
     </div>
-    <% end %>
-
+  </div>
 </div>
