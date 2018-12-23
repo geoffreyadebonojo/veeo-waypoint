@@ -5,18 +5,17 @@ RSpec.feature "User Searches A Question", type: :feature do
     scenario 'the user sees a list of results from Bing', :vcr do
       stub_oauth_user
       visit '/'
-
-      click_on 'Login with Google'
+      click_on 'Sign in with Google'
 
       user = User.last
       topic = create(:topic, user: user)
       question = create(:question, topic: topic)
 
       visit '/topics'
-
       within(first('.question')) do
         click_on "Search"
       end
+      
       expect(current_path).to eq('/search')
       expect(page).to have_content(question.text)
       expect(all('.result').length).to eq(10)

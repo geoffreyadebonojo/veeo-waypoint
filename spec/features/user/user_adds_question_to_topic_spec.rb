@@ -3,10 +3,9 @@ require 'rails_helper'
 RSpec.feature "User visiting topic index page", type: :feature do
   it 'can add a question to a specific topic' do
     stub_oauth_user
-
     visit '/'
-    click_on 'Login with Google'
-
+    click_on 'Sign in with Google'
+    
     user = User.last
     topic = create(:topic, user: user)
 
