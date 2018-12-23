@@ -2,6 +2,8 @@
   <% topics.each do |topic|%>
     <div class="topic">
       <div class="title"><%= link_to(topic.title, "/topics/#{topic.id}") %></div>
+      <%= render '/user/topics/edit_topic_form',
+            topic: topic %>
       <%= render '/user/questions/question_form',
             topic: topic,
             question: new_question %>
