@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :source do
-    title { "MyString" }
+    title { "Title" }
     url { "MyString" }
     snippet { "MyText" }
     display_url { "MyString" }
