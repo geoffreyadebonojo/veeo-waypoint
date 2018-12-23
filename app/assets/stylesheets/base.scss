@@ -4,12 +4,16 @@ body {
   padding: 0;
 }
 
+
 .centered-content {
   width: 600px;
   height: 100vh;
   margin: 0 auto;
   text-align: center;
 
+  .list {
+    text-align: left; 
+  }
   .topic {
     display: flex;
     width: 100%;
