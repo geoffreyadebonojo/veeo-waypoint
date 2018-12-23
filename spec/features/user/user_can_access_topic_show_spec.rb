@@ -38,7 +38,9 @@ RSpec.feature "User topic management", type: :feature do
 
       within(first(".question")) do
         expect(page).to have_content(topic.questions.first.text)
-        expect(page).to have_content(source_1.url)
+        expect(page).to have_content(source_1.title)
+        expect(page).to have_content(source_1.display_url)
+        expect(page).to have_content(source_1.snippet)
       end
 
       within(all(".question")[1]) do
