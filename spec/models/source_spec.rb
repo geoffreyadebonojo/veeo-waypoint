@@ -1,5 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Source, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context 'References' do
+    it { is_expected.to belong_to :question }
+  end
 end
