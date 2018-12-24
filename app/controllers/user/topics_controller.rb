@@ -6,13 +6,14 @@ class User::TopicsController < ApplicationController
   end
 
   def show
+    @topic = Topic.find(params[:id])
   end
-  
+
   def create
     current_user.topics.create(topic_params)
     redirect_to topics_path
   end
-  
+
   def update
     topic = Topic.find(params[:id])
     topic.update(topic_params)

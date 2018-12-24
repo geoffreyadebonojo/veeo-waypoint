@@ -4,11 +4,27 @@ body {
   padding: 0;
 }
 
+
 .centered-content {
-  width: 600px;
+  width: 700px;
   height: 100vh;
   margin: 0 auto;
   text-align: center;
+
+  .list {
+    text-align: left;
+
+    .question {
+      .source {
+        padding: 10px;
+        width: 90%;
+        margin: 0 auto 20px auto;
+        border-radius: 10px;
+        box-shadow: 1px 2px 5px 0px gray;
+
+      }
+    }
+  }
 
   .topic {
     display: flex;

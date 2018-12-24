@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+  context 'References' do
+    it { is_expected.to have_many :topics }
+  end
+  
   it 'exists' do
     attributes = {}
     user = User.create(attributes)

@@ -1,1 +1,27 @@
+<div class="centered-content">
+  <div class="title">
+    <h1><%= @topic.title %></h1>
 
+    <div class="list">
+      <ul>
+        <h2>Questions and Saved Sources</h2>
+        <hr>
+        <% @topic.questions.each do |question| %>
+          <li>
+            <div class="question">
+              <h3><%= question.text %></h3>
+              <% question.sources.each do |source| %>
+                <div class="source">
+                  <strong><%= source.title %></strong></br>
+                  <a href=""><%= source.display_url %></a></br>
+                  <%= source.snippet %></br>
+                </div>
+              <% end %>
+            </div>
+          </li>
+        <hr />
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
