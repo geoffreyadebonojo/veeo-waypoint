@@ -19,6 +19,11 @@ class User::TopicsController < ApplicationController
     redirect_to topics_path
   end
   
+  def destroy
+    Topic.find(params[:id]).destroy
+    redirect_to topics_path
+  end
+  
   private 
   
   def topic_params
