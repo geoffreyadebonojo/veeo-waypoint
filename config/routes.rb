@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   end
   scope module: :user do
     get '/search', to: 'search#index'
-    resources :topics, only: [:show, :index, :create, :update] do
+    resources :topics, except: [:new, :edit] do
       resources :questions, only: [:show, :index, :create]
     end
   end
