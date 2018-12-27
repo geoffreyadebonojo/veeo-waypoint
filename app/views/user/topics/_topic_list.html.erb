@@ -2,7 +2,7 @@
   <% topics.each do |topic|%>
     <div class="topic">
       <div class="title"><%= link_to(topic.title, "/topics/#{topic.id}") %></div>
-      <%= button_to "Delete Topic", topic_path(topic), method: :delete, data: {confirm: "Are you sure you want to delete everything of #{topic.title}?"}, id: "delet-topic-btn" %>
+      <%= link_to "Delete Topic", topic_path(topic), method: :delete, data: {confirm: "Are you sure you want to #{topic.title} and everything it leads to?"}, id: "delet-topic-btn" %>
       <%= render '/user/topics/edit_topic_form',
             topic: topic %>
       <%= render '/user/questions/question_form',

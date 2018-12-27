@@ -19,12 +19,12 @@ class User::TopicsController < ApplicationController
     topic.update(topic_params)
     redirect_to topics_path
   end
-  
+
   def destroy
     Topic.find(params[:id]).destroy
     redirect_to topics_path
   end
-  
+
   def topic_params
     params.require(:topic).permit(:title)
   end
