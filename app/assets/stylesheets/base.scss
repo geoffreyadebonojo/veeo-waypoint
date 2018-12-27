@@ -6,7 +6,7 @@ body {
 
 
 .centered-content {
-  width: 700px;
+  width: 800px;
   height: 100vh;
   margin: 0 auto;
   text-align: center;
@@ -37,12 +37,16 @@ body {
     .title {
       font-weight: 600;
       font-size: 1.1em;
+      width: 200px;
     }
   }
 
   ul {
     text-align: left;
     list-style-type: none;
+    li {
+      text-indent: 80px;
+    }
   }
 
   .form-field {
@@ -50,6 +54,16 @@ body {
       width: 20em;
     }
   }
+
+  div.question-count{
+    width: 30px;
+  }
+
+  button {
+    float: left;
+    margin: 0 12px;
+  }
+
 
 }
 
