@@ -33,8 +33,8 @@ group :development, :test do
   gem 'simplecov'
   gem 'vcr'
   gem 'factory_bot_rails'
-  # gem 'selenium-webdriver'
-  # gem 'chromedriver-helper'
+  gem 'selenium-webdriver'
+  gem 'chromedriver-helper'
 end
 
 group :development do
