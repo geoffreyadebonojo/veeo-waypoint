@@ -2,7 +2,7 @@
   <% questions.each do |question| %>
     <div class="question">
       <li>
-        <%= link_to 'Search', search_path(question: question.text) %>
+        <%= link_to '<i class="fa fa-search"></i>'.html_safe, search_path(question: question.text) %>
         <%= question.text %>
       </li>
     </div>
