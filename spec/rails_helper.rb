@@ -17,12 +17,23 @@ end
 
 DatabaseCleaner.strategy = :truncation
 
+Capybara.register_driver :selenium_chrome do |app|
+  options = Selenium::WebDriver::Chrome::Options.new(args: %w[no-sandbox headless disable-gpu])
+  Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
+end
+
+Capybara.javascript_driver = :selenium_chrome
+
+Capybara.configure do |config|
+  config.default_max_wait_time = 5
+end
+
 RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.use_transactional_fixtures = true
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
-  
+
   config.before(:each) do #cleans at beginning
     DatabaseCleaner.clean
   end
@@ -71,11 +82,3 @@ omniauth_hash = { 'provider' => 'google_oauth2',
                                 },
                 }.with_indifferent_access
 OmniAuth.config.add_mock(:google_oauth2, omniauth_hash)
-
-Capybara.register_driver :selenium do |app|
-  Capybara::Selenium::Driver.new(app, browser: :chrome)
-end
-Capybara.javascript_driver = :selenium_chrome
-Capybara.configure do |config|
-  config.default_max_wait_time = 5
-end
