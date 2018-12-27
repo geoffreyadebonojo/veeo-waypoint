@@ -11,6 +11,9 @@
   </head>
 
   <body>
+    <nav class="navbar">
+      <p class="nav-link"> <%= link_to 'Logout', '/logout' if current_user %> </p>
+    </nav>
     <%= yield %>
   </body>
 </html>
