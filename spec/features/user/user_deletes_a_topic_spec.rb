@@ -9,6 +9,7 @@ RSpec.feature "User visiting topic index page", type: :feature do
     user = User.last
     fill_in 'topic[title]', with: 'Computer Science'
     click_on 'Save'
+    sleep 0.01
     topic = user.topics.last
 
     expect(page).to have_content(topic.title)
