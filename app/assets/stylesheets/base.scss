@@ -93,7 +93,24 @@ button.collapsible {
 }
 
 #results-iframe {
-  width: 50%;
+  float: left;
+  width: 55%;
+  height: 500px;
+  margin: 0 0 0 10px;
+  border: 2px red dashed;
+}
+
+#sidebar-iframe {
+  position: relative;
+  float: left;
+  width: 35%;
+  margin: 0 10px 0 0;
   height: 500px;
   border: 2px red dashed;
+}
+
+.result {
+  .fa {
+    font-size:1.2em;
+  }
 }
