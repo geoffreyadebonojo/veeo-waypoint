@@ -1,4 +1,4 @@
 <div class="form-field"><%= form_for [topic, question] do |f| %>
-  <%= f.text_field :text, placeholder: "Ask a new Question" %>
+  <%= f.text_field :text, placeholder: "Ask a new Question", required: true %>
   <%= f.submit "Save"%>
 <% end %>
