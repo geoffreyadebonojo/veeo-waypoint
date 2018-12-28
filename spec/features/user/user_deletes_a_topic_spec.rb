@@ -16,7 +16,7 @@ RSpec.feature "User visiting topic index page", type: :feature do
 
     within(first('.topic')) do
       page.accept_confirm do
-        click_link 'Delete Topic'
+        click_on 'Delete Topic'
       end
     end
 
