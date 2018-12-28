@@ -5,29 +5,26 @@ RSpec.feature "User visiting topic index page", type: :feature do
     stub_oauth_user
     visit '/'
     click_on 'Sign in with Google'
-    sleep 0.01
+    sleep 0.05
     user = User.last
     fill_in 'topic[title]', with: 'Computer Science'
     click_on 'Save'
-    sleep 0.01
+    sleep 0.05
+    topic = user.topics.last
     within(first(".topic")) do
       fill_in 'question[text]', with: 'What is a query'
       click_on 'Save'
     end
-  
-    question = Topic.last.questions.last
+    question = topic.questions.last
 
     expect(page).to have_css('.questions', visible: :hidden, text: 'What is a query')
     
-    within(first(".topic")) do
-      find('.collapsible').click
-      within(first('.question')) do
-        page.accept_confirm do
-          click_on 'Delete Question'
-        end
+    within(first('.question', visible: :hidden)) do
+      page.accept_confirm do
+        find('.delete-link', visible: :hidden).click
       end
     end
-
+  
     expect(current_path).to eq('/topics')
     expect(page).to_not have_css('.questions', visible: :hidden, text: 'What is a query')
   end
