@@ -18,10 +18,13 @@ RSpec.feature "User visiting topic index page", type: :feature do
     question = Topic.last.questions.last
 
     expect(page).to have_css('.questions', visible: :hidden, text: 'What is a query')
-
-    within(first('.questions', visible: :hidden)) do
-      page.accept_confirm do
-        click_on 'Delete Question'
+    
+    within(first(".topic")) do
+      find('.collapsible').click
+      within(first('.question')) do
+        page.accept_confirm do
+          click_on 'Delete Question'
+        end
       end
     end
 
