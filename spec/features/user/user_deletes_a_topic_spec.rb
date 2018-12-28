@@ -5,11 +5,11 @@ RSpec.feature "User visiting topic index page", type: :feature do
     stub_oauth_user
     visit '/'
     click_on 'Sign in with Google'
-    sleep 0.01
+    sleep 0.03
     user = User.last
     fill_in 'topic[title]', with: 'Computer Science'
     click_on 'Save'
-    sleep 0.01
+    sleep 0.03
     topic = user.topics.last
 
     expect(page).to have_content(topic.title)
