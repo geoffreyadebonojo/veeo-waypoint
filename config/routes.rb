@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   end
   scope module: :user do
     get '/search', to: 'search#index'
-    resources :topics, only: [:show, :index, :create, :update] do
-      resources :questions, only: [:show, :index, :create]
+    resources :topics, except: [:new, :edit] do
+      resources :questions, except: [:new, :edit, :update]
     end
   end
 

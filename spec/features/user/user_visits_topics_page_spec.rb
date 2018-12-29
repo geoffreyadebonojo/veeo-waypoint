@@ -1,11 +1,5 @@
 require 'rails_helper'
 
-# As a User
-# When I visit my dashboard
-# I see a list of existing topics
-# and for each topic, I see a prompt to add new questions
-# When I click on a topic, I am taken to its show page
-
 RSpec.describe "User visiting the topics path" do
   it "can see user's topics" do
     user = create(:user)

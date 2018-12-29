@@ -4,6 +4,7 @@ ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
+require 'database_cleaner'
 require 'vcr'
 require 'webmock/rspec'
 
@@ -14,6 +15,8 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 
+DatabaseCleaner.strategy = :truncation
+
 Capybara.register_driver :selenium_chrome do |app|
   options = Selenium::WebDriver::Chrome::Options.new(args: %w[no-sandbox headless disable-gpu])
   Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
@@ -21,14 +24,27 @@ end
 
 Capybara.javascript_driver = :selenium_chrome
 
+Capybara.configure do |config|
+  config.default_max_wait_time = 5
+end
+
 RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.use_transactional_fixtures = true
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
 
-  config.include FactoryBot::Syntax::Methods
+  config.before(:each) do #cleans at beginning
+    DatabaseCleaner.clean
+  end
+  config.before(:each, :js => true) do
+    DatabaseCleaner.strategy = :truncation
+  end
+  config.after(:each) do #cleans after each test
+    DatabaseCleaner.clean
+   end
 
+  config.include FactoryBot::Syntax::Methods
   config.after(:each) do
     # reset all FactoryBot sequences after each test
     FactoryBot.reload
@@ -54,15 +70,6 @@ Shoulda::Matchers.configure do |config|
   end
 end
 
-DatabaseCleaner.strategy = :truncation
-RSpec.configure do |config|
-  config.before(:each) do #cleans at beginning
-    DatabaseCleaner.clean
-  end
-  config.after(:each) do #cleans after each test
-    DatabaseCleaner.clean
-   end
-end
 
 OmniAuth.config.test_mode = true
 omniauth_hash = { 'provider' => 'google_oauth2',
@@ -74,5 +81,4 @@ omniauth_hash = { 'provider' => 'google_oauth2',
                                  'image'       => 'http://testimage.jpg'
                                 },
                 }.with_indifferent_access
-
 OmniAuth.config.add_mock(:google_oauth2, omniauth_hash)
