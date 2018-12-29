@@ -1,20 +1,27 @@
 require 'rails_helper'
 
 RSpec.feature "User visiting topic index page", type: :feature do
-  it "can delete a topic's question after confirming deletion", :js do
+  before do
     stub_oauth_user
     visit '/'
     click_on 'Sign in with Google'
     sleep 0.05
-    user = User.last
-    topic = create(:topic, user: user)
-    question = create(:question, topic: topic)
+    create(:topic, user: User.last)
+    create(:question, topic: Topic.last)
     visit '/topics'
+  end
+  let(:user) { User.last }
+  let(:topic) { Topic.last }
+  let(:questiom) {Question.last}
+  
+  it "can delete a topic's question after confirming deletion", :js do
     expect(page).to have_css('.questions', visible: :hidden, text: 'What is')
     
-    within(first('.question', visible: :hidden)) do
+    find('.collapsible').click
+    sleep 0.05
+    within(first('.question')) do
       page.accept_confirm do
-        find('.delete-link', visible: :hidden).click
+        first('.delete-btn').click
       end
     end
   
@@ -23,24 +30,20 @@ RSpec.feature "User visiting topic index page", type: :feature do
   end
   
   describe 'User dismissing deletion confirmation' do
-    xit "question does not get deleted", :js do
-      stub_oauth_user
-      visit '/'
-      click_on 'Sign in with Google'
-      sleep 0.05
-      user = User.last
-      topic = create(:topic, user: user)
-      question = create(:question, topic: topic)
-      visit '/topics'
+    it "question does not get deleted", :js do
       expect(page).to have_css('.questions', visible: :hidden, text: 'What is')
       
-      within(first('.question', visible: :hidden)) do
+      find('.collapsible').click
+      sleep 0.05
+      within(first('.question')) do
         page.dismiss_confirm do
-          find('.delete-link', visible: :hidden).click
+          first('.delete-btn').click
         end
       end
-    
+
       expect(current_path).to eq('/topics')
+      
+      find('.collapsible').click
       expect(page).to have_css('.questions', visible: :hidden, text: 'What is')
     end 
   end 
