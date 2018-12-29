@@ -24,15 +24,11 @@ RSpec.feature "TopicsIndexPage", type: :feature do
 
     it 'can execute a search for a specific question', :vcr do
       question = create(:question, topic: topic)
-
-      visit '/topics'
-
-
+      visit '/topics' 
       within(first('.question', visible: :hidden)) do
         find('.search-link', visible: :hidden).click
       end
-
-
+      
       expect(current_path).to eq('/search')
       expect(page).to have_content(question.text)
       expect(all('.result').length).to eq(10)
@@ -40,7 +36,6 @@ RSpec.feature "TopicsIndexPage", type: :feature do
 
     it 'cant add a blank question' do
       visit '/topics'
-
       within(first(".topic")) do
         fill_in 'question[text]', with: ''
         click_on 'Save'
@@ -50,5 +45,4 @@ RSpec.feature "TopicsIndexPage", type: :feature do
       expect(Question.all).to eq([])
     end
   end
-
 end

@@ -5,10 +5,8 @@ RSpec.feature "User visiting topic index page", type: :feature do
     stub_oauth_user
     visit '/'
     click_on 'Sign in with Google'
-    
     user = User.last
     topic = create(:topic, user: user)
-    
     visit '/topics'
     
     expect(page).to have_content(topic.title)

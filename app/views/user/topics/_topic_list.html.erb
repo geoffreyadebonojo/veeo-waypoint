@@ -3,7 +3,7 @@
     <div class="topic">
       <button class="collapsible" ><i class="fa fa-angle-right"></i></button>
       <div class="title"><%= link_to(topic.title, "/topics/#{topic.id}") %></div>
-      <%= link_to "Delete Topic", topic_path(topic), method: :delete, data: {confirm: "Are you sure you want to #{topic.title} and everything it leads to?"}, id: "delet-topic-btn" %>
+      <%= button_to "Delete Topic", topic_path(topic), method: :delete, data: {confirm: "Are you sure you want to delete #{topic.title} and everything it leads to?"}, id: "delete-topic-btn" %>
 
       <%= render '/user/topics/edit_topic_form',
             topic: topic %>
