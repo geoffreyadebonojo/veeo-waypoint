@@ -4,7 +4,7 @@
       <li>
         <%= link_to 'Search', search_path(question: question.text), class: 'search-link' %>
         <%= question.text %>
-        <%= link_to 'Delete Question', topic_question_path(topic, question), method: :delete, class: 'delete-link', data: {confirm: "Are you sure you want to delete #{question.text} and everything it leads to?"} %>
+        <%= button_to 'Delete Question', topic_question_path(topic, question), method: :delete, class: 'delete-btn', data: {confirm: "Are you sure you want to delete #{question.text} and everything it leads to?"} %>
       </li>
     </div>
   <% end %>
