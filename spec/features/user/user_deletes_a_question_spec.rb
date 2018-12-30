@@ -68,5 +68,25 @@ RSpec.feature "User deleting a question", type: :feature do
       expect(current_path).to eq("/topics/#{topic.id}")
       expect(page).to_not have_content(question.text)
     end
+    
+    describe 'User dismissing deletion confirmation' do
+      it "question doesn't get deleted", :js do
+        within(first('.topic')) do
+          click_on topic.title
+        end
+      
+        expect(current_path).to eq("/topics/#{topic.id}")
+        expect(page).to have_content(question.text)
+        
+        within(first('.question')) do
+          page.dismiss_confirm do
+            first('.delete-btn').click
+          end
+        end
+        
+        expect(current_path).to eq("/topics/#{topic.id}")
+        expect(page).to have_content(question.text)
+      end 
+    end 
   end
 end
