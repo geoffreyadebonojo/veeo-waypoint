@@ -10,7 +10,7 @@ class User::QuestionsController < ApplicationController
   
   def destroy
     Question.find(params[:id]).destroy
-    redirect_to topics_path
+    redirect_to request.referrer
   end
 
   private
@@ -18,4 +18,4 @@ class User::QuestionsController < ApplicationController
   def question_params
     params.require(:question).permit(:text)
   end
-end 
+end
