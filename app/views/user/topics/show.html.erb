@@ -9,7 +9,9 @@
         <% @topic.questions.each do |question| %>
           <li>
             <div class="question">
-              <h3><%= question.text %></h3>
+              <h3><%= question.text %>
+                  <%= button_to 'Delete Question', topic_question_path(@topic, question), method: :delete, class: 'delete-btn', data: {confirm: "Are you sure you want to delete #{question.text} and everything it leads to?"} %>
+              </h3>
               <% question.sources.each do |source| %>
                 <div class="source">
                   <strong><%= source.title %></strong></br>
