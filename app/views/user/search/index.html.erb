@@ -5,43 +5,16 @@
       <% @facade.results.each do |result| %>
         <li>
           <div class="result">
-            <h3><%= result.title %></h3><br />
+            <% path = result_path(target_title: "#{result.title}",
+                                  target_url:   "#{result.url}") %>
 
-            <% if result.url.include?("wikipedia.org") %>
-            <h4><i class="fa fa-wikipedia-w has-frame"></i>  <%= link_to result.url, user_results_index_path(:target_title => "#{result.title}", :target_url=>"#{result.url}") %></h4>
-
-            <% elsif result.url.include?("youtube.com/watch") %>
-            <h4 class="no-frame"><i class="fa fa-youtube-play"></i>  <%= link_to result.url, result.url, target:"_blank"%>
-
-            <% elsif result.url.include?("youtube.com") %>
-            <h4 class="no-frame"><i class="fa fa-youtube"></i>  <%= link_to result.url, result.url, target:"_blank"%></h4><br />
-
-            <% elsif result.url.include?("quora.com") %>
-            <h4 class="no-frame"><i class="fa fa-quora"></i>  <%= link_to result.url, user_results_index_path(:target_title => "#{result.title}", :target_url=>"#{result.url}") %></h4><br />
-
-            <% elsif result.url.include?("amazon.com") %>
-            <h4 class="no-frame"><i class="fa fa-amazon"></i>  <%= link_to result.url, result.url, target:"_blank"%></h4><br />
-
-            <% elsif result.url.include?("mozilla.org") %>
-            <h4 class="no-frame"><i class="fa fa-firefox"></i>  <%= link_to result.url, result.url, target:"_blank"%></h4><br />
-
-            <% elsif result.url.include?("stackoverflow.com") %>
-            <h4 class="no-frame"><i class="fa fa-stack-overflow"></i>  <%= link_to result.url, result.url, target:"_blank"%></h4><br />
-
-            <% elsif result.url.include?("github.com") %>
-            <h4 class="no-frame"><i class="fa fa-github"></i>  <%= link_to result.url, result.url, target:"_blank"%></h4><br />
-
-            <% elsif result.url.include?("facebook.com") %>
-            <h4 class="no-frame"><i class="fa fa-facebook"></i>  <%= link_to result.url, result.url, target:"_blank"%></h4><br />
-
-            <% elsif result.url.include?("twitter.com") %>
-            <h4 class="no-frame"><i class="fa fa-twitter"></i>  <%= link_to result.url, result.url, target:"_blank"%></h4><br />
-
-            <% else %>
-            <h4><i class="fa fa-search"></i>  <%= link_to result.url, user_results_index_path(:target_title => "#{result.title}", :target_url=>"#{result.url}") %></h4><br />
-
+            <%= link_to path, class: "search-result-link" do %>
+              <div class="head">
+                <h3><%= result.title %></h3>
+                <span class="url"><%= result.url %><br /></span>
+              </div>
+              <%= result.snippet %>
             <% end %>
-            <%= result.snippet %><br />
           </div>
           <hr>
         </li>

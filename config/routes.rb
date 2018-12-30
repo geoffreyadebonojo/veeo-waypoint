@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
-  namespace :user do
-    get 'search/index'
-    get 'results/index'
-  end
   scope module: :user do
     get '/search', to: 'search#index'
+    get '/result', to: 'results#show'
     resources :topics, except: [:new, :edit] do
       resources :questions, except: [:new, :edit, :update]
     end

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "TopicsIndexInteractions", type: :feature do
+RSpec.feature "Topic Questions Collapse", type: :feature do
   describe 'A User visiting the topics index page' do
     it 'can expand and collapse the questions for a topic', :vcr, :js do
       stub_oauth_user
