@@ -11,6 +11,7 @@
             topic: topic,
             question: new_question %>
       </div>
+
     </div>
     <div class="questions" style="display: none;">
     <%= render '/user/questions/simple_question_list',
@@ -24,19 +25,22 @@
 <script>
 var collapsibleElement = document.getElementsByClassName("collapsible");
 var i;
-console.log(collapsibleElement);
+var questions = document.getElementsByClassName("questions");
 
 for (i = 0; i<collapsibleElement.length; i++) {
+
   collapsibleElement[i].addEventListener("click", function() {
     this.classList.toggle("active");
-    console.log("clicked");
+
     var content = this.parentNode.nextElementSibling;
+
     if (content.style.display === "block") {
       this.innerHTML = '<i class="fa fa-angle-right"></i>';
       content.style.display = "none";
+
     } else {
-      content.style.display = "block";
       this.innerHTML = '<i class="fa fa-angle-down"></i>';
+      content.style.display = "block";
     };
   })
 }

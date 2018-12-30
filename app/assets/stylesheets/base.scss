@@ -4,9 +4,18 @@ body {
   padding: 0;
 }
 
+.navbar{
+  height: 3.5rem;
+  box-shadow: 0px 4px 15px -1px rgba(51,51,51,0.76);
+  position: relative;
+}
+
+.nav-link{
+  padding: 1rem;
+}
 
 .centered-content {
-  width: 700px;
+  width: 800px;
   height: 100vh;
   margin: 0 auto;
   text-align: center;
@@ -37,12 +46,16 @@ body {
     .title {
       font-weight: 600;
       font-size: 1.1em;
+      width: 200px;
     }
   }
 
   ul {
     text-align: left;
     list-style-type: none;
+    li {
+      text-indent: 80px;
+    }
   }
 
   .form-field {
@@ -51,10 +64,32 @@ body {
     }
   }
 
+  div.question-count{
+    width: 30px;
+  }
+
+  button {
+    float: left;
+    margin: 0 12px;
+  }
+
+
 }
 
 h2 {
   font-weight: 200;
+}
+
+h3 {
+  padding: 0px;
+  margin: 0px;
+  text-indent: 0px;
+}
+
+h4 {
+  padding: 0px;
+  margin: 0px;
+  text-indent: 0px;
 }
 
 button.collapsible {
@@ -64,4 +99,54 @@ button.collapsible {
   &:hover {
   cursor:pointer;
   }
+}
+
+#results-iframe {
+  float: left;
+  width: calc(100% - 400px);
+  height: calc(100vh - 3.5rem);
+  margin: 0 0 0 0;
+  border: none;
+}
+
+#sidebar {
+  float: right;
+  width: 400px;
+  margin: 0;
+  height: calc(100vh - 3.5rem);
+  box-shadow: 3px 1px 12px 0px rgba(51,51,51,0.76) inset;
+
+  iframe {
+    height: 100%;
+    float: right;
+    width: 95%;
+  }
+}
+
+.result {
+  .fa {
+    font-size:1em;
+  }
+
+  .head {
+    margin: 0.7em 0 0.7em 0;
+  }
+
+  .search-result-link {
+    text-decoration: none;
+    color: black;
+
+    .url {
+      color: blue;
+      font-size: 0.85em;
+    }
+  }
+}
+
+.has-frame {
+  color: green;
+}
+
+.no-frame {
+  color: red;
 }
