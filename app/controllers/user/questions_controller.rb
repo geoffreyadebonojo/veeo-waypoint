@@ -7,7 +7,7 @@ class User::QuestionsController < ApplicationController
     valid_user && question = topic.questions.create(question_params)
     redirect_to topics_path
   end
-  
+
   def destroy
     Question.find(params[:id]).destroy
     redirect_to request.referrer

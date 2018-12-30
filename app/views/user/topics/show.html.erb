@@ -12,7 +12,7 @@
               <h3>
                   <%= link_to 'Search', search_path(question: question.text), class: 'search-link' %>
                   <%= question.text %>
-                  <%= button_to 'Delete Question', topic_question_path(@topic, question), method: :delete, class: 'delete-btn', data: {confirm: "Are you sure you want to delete #{question.text} and everything it leads to?"} %>
+                  <%= button_to 'Delete Question', question_path(question), method: :delete, class: 'delete-btn', data: {confirm: "Are you sure you want to delete #{question.text} and everything it leads to?"} %>
               </h3>
               <% question.sources.each do |source| %>
                 <div class="source">

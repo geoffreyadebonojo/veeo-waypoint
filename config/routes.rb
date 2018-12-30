@@ -3,8 +3,9 @@ Rails.application.routes.draw do
     get '/search', to: 'search#index'
     get '/result', to: 'results#show'
     resources :topics, except: [:new, :edit] do
-      resources :questions, except: [:new, :edit, :update]
+      resources :questions, except: [:new, :edit, :update, :destroy]
     end
+    resources :questions, only: [:destroy]
   end
 
   root 'home#index'

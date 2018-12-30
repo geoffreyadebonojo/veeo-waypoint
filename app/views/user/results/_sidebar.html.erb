@@ -1,0 +1,16 @@
+<div id="notes">
+  <% if @facade.saved? %>
+    <%= @facade.notes.each do |note| %>
+      <div class="note">
+        <%= note.text %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+<div id="questions">
+  <% if @facade.saved? %>
+    <%= render '/user/questions/simple_question_list',
+          questions: @facade.questions %>
+  <% end %>
+</div>
+<%= button_to "Save", source_path(@facade.source) %>
