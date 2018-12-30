@@ -1,0 +1,14 @@
+<h1>Index</h1>
+<% current_user.topics.each do |topic| %>
+  <h3><%= topic.title %> Questions</h3>
+
+  <% topic.questions.each do |question| %>
+    <h4><%= question.text %></h4>
+
+    <% question.sources.each do |source| %>
+      <p>-<%= source.title %></p>
+    <% end %>
+
+  <% end %>
+
+<% end %>

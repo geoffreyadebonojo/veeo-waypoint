@@ -8,7 +8,7 @@
             <h3><%= result.title %></h3><br />
 
             <% if result.url.include?("wikipedia.org") %>
-            <h4><i class="fa fa-wikipedia-w has-frame"></i>  <%= link_to result.url, user_results_index_path(:target_title => "#{result.title}", :target_url=>"#{result.url}") %></h4>
+            <h4><i class="fa fa-wikipedia-w has-frame"></i>  <%= link_to result.url, user_results_index_path(:topic_id => params[:topic], :question_id => params[:question_id], :target_title => "#{result.title}", :target_url=>"#{result.url}") %></h4>
 
             <% elsif result.url.include?("youtube.com/watch") %>
             <h4 class="no-frame"><i class="fa fa-youtube-play"></i>  <%= link_to result.url, result.url, target:"_blank"%>
@@ -38,7 +38,7 @@
             <h4 class="no-frame"><i class="fa fa-twitter"></i>  <%= link_to result.url, result.url, target:"_blank"%></h4><br />
 
             <% else %>
-            <h4><i class="fa fa-search"></i>  <%= link_to result.url, user_results_index_path(:target_title => "#{result.title}", :target_url=>"#{result.url}") %></h4><br />
+            <h4><i class="fa fa-search"></i>  <%= link_to result.url, user_results_index_path(:topic_id => params[:topic], :target_title => "#{result.title}", :target_url=>"#{result.url}") %></h4><br />
 
             <% end %>
             <%= result.snippet %><br />

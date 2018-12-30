@@ -4,6 +4,8 @@ class User::ResultsController < ApplicationController
     @facade = SearchFacade.new(search_params)
   end
 
+  private
+
   def search_params
     params.permit(:question)
   end

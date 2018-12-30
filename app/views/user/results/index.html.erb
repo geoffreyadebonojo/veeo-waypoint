@@ -1,3 +1,28 @@
 <h1>Results for: <%= params[:target_title] %></h1>
+<!--
+<h2><button onclick="getSessionData()" %>SAVE PAGE</h2>
+-->
+<h2>
+  <%= button_to "Save", "/topics/#{params[:topic_id]}/questions/#{params[:question_id]}/sources?target_url=#{params[:target_url]}&target_title=#{params[:target_title]})" %>
+</h2>
 <iframe src="<%= params[:target_url] %>" frameborder="0" id="results-iframe"></iframe>
-<iframe src="sidebar" frameborder="0" id="sidebar-iframe"></iframe>
+<iframe src="<%= user_sidebar_index_path %>" frameborder="0" id="sidebar-iframe"></iframe>
+
+<script>
+function getSessionData() {
+  session = {
+    source: {
+    url: '<%= params[:target_url]  %>',
+    title: '<%= params[:target_title]  %>',
+    question:
+      {
+        title: '<%= session["question_title"] %>'
+      }
+    }
+  }
+
+  localStorage.setItem('sourceData', JSON.stringify(session));
+  console.log(JSON.parse(localStorage.getItem('sourceData')));
+};
+getSessionData();
+</script>
