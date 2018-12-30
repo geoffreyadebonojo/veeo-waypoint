@@ -10,7 +10,7 @@ RSpec.feature "User topic management", type: :feature do
   let(:topic) { Topic.last }
 
   describe 'user visiting topic index page' do
-    it 'can click on a topic and go to show page' do
+    it 'can click on a topic and gets to its show page' do
       visit '/topics'
       within(first(".topic")) do
         fill_in 'question[text]', with: 'What is a query'

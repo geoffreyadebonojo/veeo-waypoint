@@ -5,6 +5,7 @@
       <% @facade.results.each do |result| %>
         <li>
           <div class="result">
+<<<<<<< HEAD
             <h3><%= result.title %></h3><br />
 
             <% if result.url.include?("wikipedia.org") %>
@@ -40,8 +41,18 @@
             <% else %>
             <h4><i class="fa fa-search"></i>  <%= link_to result.url, user_results_index_path(:topic_id => params[:topic], :target_title => "#{result.title}", :target_url=>"#{result.url}") %></h4><br />
 
+=======
+            <% path = result_path(target_title: "#{result.title}",
+                                  target_url:   "#{result.url}") %>
+
+            <%= link_to path, class: "search-result-link" do %>
+              <div class="head">
+                <h3><%= result.title %></h3>
+                <span class="url"><%= result.url %><br /></span>
+              </div>
+              <%= result.snippet %>
+>>>>>>> ff0dd97c8df9e132ee0be38a32e726ad5e281e65
             <% end %>
-            <%= result.snippet %><br />
           </div>
           <hr>
         </li>

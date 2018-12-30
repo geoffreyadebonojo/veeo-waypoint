@@ -1,7 +1,7 @@
 class User::ResultsController < ApplicationController
 
-  def index
-    @facade = SearchFacade.new(search_params)
+  def show
+    @target_url = params[:target_url]
   end
 
   private
