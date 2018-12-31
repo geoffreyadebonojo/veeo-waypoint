@@ -13,5 +13,7 @@
           questions: @facade.questions %>
   <% end %>
 </div>
-<%= button_to "Save", question_sources_path(question_id: @facade.question.id),
-method: :post, params: @facade.source %>
+<% unless @facade.saved? %>
+  <%= button_to "Save", question_sources_path(question_id: @facade.question.id),
+  method: :post, params: { source: @facade.source_params }%>
+<% end %>

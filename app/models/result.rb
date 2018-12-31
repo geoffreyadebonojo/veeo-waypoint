@@ -13,13 +13,11 @@ class Result
   end
 
   def source_params
-    {
-      question_id: @question_id,
+    { question_id: @question_id,
       url: @url,
       title: @title,
       snippet: @snippet,
-      display_url: @display_url
-    }
+      display_url: @display_url }
   end
 
 end

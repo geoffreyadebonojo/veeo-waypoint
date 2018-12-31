@@ -1,11 +1,9 @@
 class User::ResultsController < ApplicationController
+  before_action :authenticate
 
   def show
-    # @target_url = params[:target_url]
-    @facade = SourceFacade.new(Source.new(source_params))
-  end
-
-  def new
+    source = Source.find_or_initialize_by(source_params)
+    @facade = SourceFacade.new(source)
   end
 
   private

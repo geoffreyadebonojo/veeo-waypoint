@@ -6,11 +6,23 @@ class SourceFacade
   end
 
   def saved?
-    false
+    source.persisted?
   end
 
   def question
     source.question
+  end
+
+  def source_url
+    source.url
+  end
+
+  def source_params
+    { question_id: source.question_id,
+      url: source.url,
+      title: source.title,
+      snippet: source.snippet,
+      display_url: source.display_url }
   end
 
 end
