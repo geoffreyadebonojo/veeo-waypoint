@@ -13,10 +13,6 @@ class SourceFacade
     source.question_id
   end
 
-  def source_url
-    source.url
-  end
-
   def source_params
     { question_id: source.question_id,
       url: source.url,
