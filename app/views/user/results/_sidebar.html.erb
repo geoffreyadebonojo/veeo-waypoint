@@ -1,0 +1,19 @@
+<div id="notes">
+  <% if @facade.saved? %>
+    <%= @facade.notes.each do |note| %>
+      <div class="note">
+        <%= note.text %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+<div id="questions">
+  <% if @facade.saved? %>
+    <%= render '/user/questions/simple_question_list',
+          questions: @facade.questions %>
+  <% end %>
+</div>
+<% unless @facade.saved? %>
+  <%= button_to "Save", question_sources_path(question_id: @facade.question.id),
+  method: :post, params: { source: @facade.source_params }%>
+<% end %>

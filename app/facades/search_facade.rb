@@ -7,17 +7,17 @@ class SearchFacade
 
   def results
     search_results.map do |raw_result|
-      Result.new(raw_result)
+      Result.new(raw_result, @question.id)
     end
   end
-  
-  private 
-  
+
+  private
+
   def search_results
     @results ||= bing_service.get_results
   end
-  
+
   def bing_service
-    BingService.new(@question)
+    BingService.new(@question.text)
   end
 end
