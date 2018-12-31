@@ -3,19 +3,28 @@ require 'rails_helper'
 RSpec.feature "Search result sidebar", type: :feature do
   describe "After User selects a search result " do
     scenario 'user sees sidebar on result show page ', :vcr do
-      user = create(:user)
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      stub_oauth_user
+      visit '/'
+      click_on 'Sign in with Google'
+
+      user = User.last
+
+
       topic = create(:topic, user: user)
       question = create(:question, topic: topic, text: "Test Search")
-      visit search_path(question_id: question.id)
 
-      first('.search-result-link').click
+      source_params = { title:       "Dummy Page",
+                        url:         topics_path,
+                        display_url: topics_path,
+                        question_id: question.id,
+                        snippet:     "Some content" }
 
-      expect(page).to have_css('#notes')
-      expect(page).to have_css('#questions')
+      visit sidebar_path(source: source_params)
+
       click_on "Save"
-      visit topic_path(topic)
-      expect(page).to have_content("Wikipedia")
+      expect(page).to have_content("Saved!")
+      expect(page).to_not have_button("Save")
+
     end
   end
 end

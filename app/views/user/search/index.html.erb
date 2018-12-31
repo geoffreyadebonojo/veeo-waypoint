@@ -6,7 +6,7 @@
       <% @facade.results.each do |result| %>
         <li>
           <div class="result">
-            <% path = result_path(source: result.source_params) %>
+            <% path = source_path(source: result.source_params) %>
 
             <%= link_to path, class: "search-result-link" do %>
               <div class="head">

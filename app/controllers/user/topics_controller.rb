@@ -1,6 +1,4 @@
-class User::TopicsController < ApplicationController
-  before_action :authenticate
-
+class User::TopicsController < User::ApplicationController
   def index
     @facade = TopicsFacade.new(current_user)
   end

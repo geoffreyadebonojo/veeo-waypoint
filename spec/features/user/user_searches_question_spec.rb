@@ -8,15 +8,14 @@ RSpec.feature "Search Index Page", type: :feature do
     question = create(:question, topic: topic, text: "Test Search")
     visit search_path(question_id: question.id)
 
-    # Stubbing target url to hit an internal route so we don't have to wait long for the frame to load.
-
+    # Stubbing params hit an internal route so we don't have to wait long for the frame to load.
     source_params = { title:       "Dummy Page",
                       url:         topics_path,
                       display_url: topics_path,
                       question_id: question.id,
                       snippet:     "Some content" }
 
-    allow_any_instance_of(User::ResultsController).to receive(:source_params).and_return(source_params)
+    allow_any_instance_of(User::SourcesController).to receive(:source_params).and_return(source_params)
 
     first('.search-result-link').click
     sleep 0.05

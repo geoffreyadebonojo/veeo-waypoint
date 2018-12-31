@@ -9,8 +9,8 @@ class SourceFacade
     source.persisted?
   end
 
-  def question
-    source.question
+  def question_id
+    source.question_id
   end
 
   def source_url

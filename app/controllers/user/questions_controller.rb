@@ -1,5 +1,5 @@
-class User::QuestionsController < ApplicationController
-  before_action :authenticate
+class User::QuestionsController < User::ApplicationController
+  # before_action :authenticate
 
   def create
     topic = Topic.find(params[:topic_id])

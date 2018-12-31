@@ -1,6 +1,4 @@
-class User::SearchController < ApplicationController
-  before_action :authenticate
-
+class User::SearchController < User::ApplicationController
   def index
     question = Question.find(search_params[:question_id])
     @facade = SearchFacade.new(question)
