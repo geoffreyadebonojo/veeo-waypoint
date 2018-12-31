@@ -1,22 +1,21 @@
 <div class="centered-content">
-  <div class="title">
     <h1 style="text-align: center;"><%= @topic.title %></h1>
 
     <div class="list">
-      <ul>
+
         <h2 style="text-align: center;">Questions and Saved Sources</h2>
         <hr>
         <% @topic.questions.each do |question| %>
-          <li>
             <div class="question">
-              <%= button_to search_path(question: question.text) do %>
+              <div class="search-button"><%= button_to search_path(question: question.text) do %>
                                               <i class="fa fa-search" aria-hidden="true"></i>
                                           <% end %>
-
-              <div class="question-text"><%= question.text %></div>
-              <%= button_to topic_question_path(@topic, question), method: :delete, data: {confirm: "Are you sure you want to delete #{question.text} and everything it leads to?"} do %>
+                  <div class="question-text"><%= question.text %></div>
+              </div>
+              <div class="delete-button"><%= button_to topic_question_path(@topic, question), method: :delete, data: {confirm: "Are you sure you want to delete #{question.text} and everything it leads to?"} do %>
                                             <i class="fa fa-trash" aria-hidden="true"></i>
-              <% end %>
+                                          <% end %>
+              </div>
 
 
               <% question.sources.each do |source| %>
@@ -27,10 +26,7 @@
                 </div>
               <% end %>
             </div>
-          </li>
         <hr />
         <% end %>
-      </ul>
     </div>
-  </div>
 </div>
