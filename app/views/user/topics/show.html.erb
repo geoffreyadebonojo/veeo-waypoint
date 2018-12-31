@@ -1,19 +1,24 @@
 <div class="centered-content">
   <div class="title">
-    <h1><%= @topic.title %></h1>
+    <h1 style="text-align: center;"><%= @topic.title %></h1>
 
     <div class="list">
       <ul>
-        <h2>Questions and Saved Sources</h2>
+        <h2 style="text-align: center;">Questions and Saved Sources</h2>
         <hr>
         <% @topic.questions.each do |question| %>
           <li>
             <div class="question">
-              <h3>
-                  <%= link_to 'Search', search_path(question: question.text), class: 'search-link' %>
-                  <%= question.text %>
-                  <%= button_to 'Delete Question', topic_question_path(@topic, question), method: :delete, class: 'delete-btn', data: {confirm: "Are you sure you want to delete #{question.text} and everything it leads to?"} %>
-              </h3>
+              <%= button_to search_path(question: question.text) do %>
+                                              <i class="fa fa-search" aria-hidden="true"></i>
+                                          <% end %>
+
+              <div class="question-text"><%= question.text %></div>
+              <%= button_to topic_question_path(@topic, question), method: :delete, data: {confirm: "Are you sure you want to delete #{question.text} and everything it leads to?"} do %>
+                                            <i class="fa fa-trash" aria-hidden="true"></i>
+              <% end %>
+
+
               <% question.sources.each do |source| %>
                 <div class="source">
                   <strong><%= source.title %></strong></br>
