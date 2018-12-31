@@ -2,11 +2,12 @@ class User::SearchController < ApplicationController
   before_action :authenticate
 
   def index
-    @facade = SearchFacade.new(search_params[:question])
+    question = Question.find(search_params[:question_id])
+    @facade = SearchFacade.new(question)
   end
 
   private
   def search_params
-    params.permit(:question)
+    params.permit(:question_id)
   end
 end

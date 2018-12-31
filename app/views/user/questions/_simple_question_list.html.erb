@@ -2,7 +2,7 @@
   <% questions.each do |question| %>
     <div class="question">
       <li>
-        <%= link_to 'Search', search_path(question: question.text), class: 'search-link' %>
+        <%= link_to 'Search', search_path(question_id: question.id), class: 'search-link' %>
         <%= question.text %>
         <%= button_to 'Delete Question', question_path(question), method: :delete, class: 'delete-btn', data: {confirm: "Are you sure you want to delete #{question.text} and everything it leads to?"} %>
       </li>
