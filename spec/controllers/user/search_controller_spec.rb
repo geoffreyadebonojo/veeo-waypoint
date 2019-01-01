@@ -7,9 +7,10 @@ RSpec.describe User::SearchController, type: :controller do
     let(:facade) { double("SearchFacade") }
 
     before do
-       allow(SearchFacade).to receive(:new).and_return(facade)
-       allow(controller).to receive(:authenticate)
-     end
+      allow(Question).to receive(:find).and_return(question)
+      allow(SearchFacade).to receive(:new).and_return(facade)
+      allow(controller).to receive(:authenticate)
+    end
 
     context "dependencies" do
       before { get :index, params: { question: question } }

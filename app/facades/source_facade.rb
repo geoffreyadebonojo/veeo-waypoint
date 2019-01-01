@@ -17,10 +17,6 @@ class SourceFacade
     source.question.text
   end
 
-  def source_id
-    source.id
-  end
-
   def new_note
     Note.new()
   end
