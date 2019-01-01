@@ -13,6 +13,18 @@ class SourceFacade
     source.question_id
   end
 
+  def source_id
+    source.id
+  end
+
+  def new_note
+    Note.new()
+  end
+
+  def notes
+    source.notes.reverse
+  end
+
   def source_params
     { question_id: source.question_id,
       url: source.url,
@@ -20,5 +32,4 @@ class SourceFacade
       snippet: source.snippet,
       display_url: source.display_url }
   end
-
 end

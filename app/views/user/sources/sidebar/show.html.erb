@@ -1,7 +1,20 @@
-<br /><br />
 <% if @facade.saved? %>
-  Saved!
+  <div class="new-note-form">
+    <%= form_for [@facade.source, @facade.new_note] do |f| %>
+      <%= f.text_area :text, placeholder: "Something worth remembering? Take a note.", required: true, class: "new-note-field" %>
+      <%= f.submit "Save Note"%>
+    <% end %>
+  </div>
+  <div id="notes">
+    <hr>
+    <% @facade.notes.each do |note| %>
+      <%= note.text %> <br />
+      <hr />
+    <% end %>
+  </div>
 <% else %>
   <%= button_to "Save", question_sources_path(question_id: @facade.question_id),
-  method: :post, params: { source: @facade.source_params }%>
+                        params: { source: @facade.source_params },
+                        method: :post,
+                        id: "save-source" %>
 <% end %>

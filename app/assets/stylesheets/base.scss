@@ -120,7 +120,19 @@ button.collapsible {
     height: 100%;
     float: right;
     width: 95%;
+    padding-top: 1rem;
   }
+}
+
+.new-note-field {
+  width: 95%;
+  height: 200px;
+}
+
+#notes {
+  height: 200px;
+  overflow: scroll;
+  margin: 1rem 0 1rem 0;
 }
 
 .result {
