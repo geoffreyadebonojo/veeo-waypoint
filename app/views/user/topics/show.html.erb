@@ -10,16 +10,21 @@
           <li>
             <div class="question">
               <h3>
-                  <%= link_to 'Search', search_path(question: question.text), class: 'search-link' %>
+                  <%= link_to 'Search', search_path(question_id: question.id), class: 'search-link' %>
                   <%= question.text %>
-                  <%= button_to 'Delete Question', topic_question_path(@topic, question), method: :delete, class: 'delete-btn', data: {confirm: "Are you sure you want to delete #{question.text} and everything it leads to?"} %>
+                  <%= button_to 'Delete Question', question_path(question), method: :delete, class: 'delete-btn', data: {confirm: "Are you sure you want to delete #{question.text} and everything it leads to?"} %>
               </h3>
               <% question.sources.each do |source| %>
-                <div class="source">
-                  <strong><%= source.title %></strong></br>
-                  <a href=""><%= source.display_url %></a></br>
-                  <%= source.snippet %></br>
-                </div>
+                <%= link_to source_path(source: source.params),
+                      class: "search-result-link" do %>
+
+                  <div class="source">
+                    <h3><%= source.title %></h3>
+                    <span class="url"><%= source.url %><br /></span>
+                    <%= source.snippet %>
+                  </div>
+
+                <% end %>
               <% end %>
             </div>
           </li>

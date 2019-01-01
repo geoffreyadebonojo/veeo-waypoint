@@ -1,5 +1,5 @@
-class User::QuestionsController < ApplicationController
-  before_action :authenticate
+class User::QuestionsController < User::ApplicationController
+  # before_action :authenticate
 
   def create
     topic = Topic.find(params[:topic_id])
@@ -7,7 +7,7 @@ class User::QuestionsController < ApplicationController
     valid_user && question = topic.questions.create(question_params)
     redirect_to topics_path
   end
-  
+
   def destroy
     Question.find(params[:id]).destroy
     redirect_to request.referrer

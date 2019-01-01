@@ -34,6 +34,7 @@ group :development, :test do
   gem 'vcr'
   gem 'factory_bot_rails'
   gem 'selenium-webdriver'
+  gem 'io-like', '>= 0.3.0'
   gem 'chromedriver-helper'
 end
 

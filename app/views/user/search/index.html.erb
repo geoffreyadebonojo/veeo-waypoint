@@ -1,12 +1,12 @@
 <div class="centered-content">
   <h1> Search Results for<br /> "<%= @facade.question %>"</h1>
+  <%= link_to "Back to #{@facade.question}", :back %>
   <ul>
     <% cache("results-#{@facade.question}") do %>
       <% @facade.results.each do |result| %>
         <li>
           <div class="result">
-            <% path = result_path(target_title: "#{result.title}",
-                                  target_url:   "#{result.url}") %>
+            <% path = source_path(source: result.source_params) %>
 
             <%= link_to path, class: "search-result-link" do %>
               <div class="head">
