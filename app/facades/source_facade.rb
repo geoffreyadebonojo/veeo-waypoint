@@ -13,6 +13,10 @@ class SourceFacade
     source.question_id
   end
 
+  def question_text
+    source.question.text
+  end
+
   def source_id
     source.id
   end
@@ -31,5 +35,13 @@ class SourceFacade
       title: source.title,
       snippet: source.snippet,
       display_url: source.display_url }
+  end
+
+  def topic_title
+    source.topic.title
+  end
+
+  def topic
+    source.topic
   end
 end

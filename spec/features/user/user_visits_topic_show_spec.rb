@@ -25,12 +25,15 @@ RSpec.feature "User topic management", type: :feature do
   end
 
   describe 'user visiting topic show page' do
-    it 'sees each question' do
-      questions = create_list(:question, 2, topic: topic)
-      source_1  = create(:source, question: questions[0])
-      source_2  = create(:source, question: questions[1])
+    let!(:questions) { create_list(:question, 2, topic: topic) }
+    let!(:source_1)  { create(:source, question: questions[0]) }
+    let!(:source_2)  { create(:source, question: questions[1]) }
+
+    before do
       visit "/topics/#{topic.id}"
-      
+    end
+
+    it 'sees each question' do
       within(first(".question")) do
         expect(page).to have_content(topic.questions.first.text)
         expect(page).to have_content(source_1.title)
@@ -41,6 +44,16 @@ RSpec.feature "User topic management", type: :feature do
         expect(page).to have_content(topic.questions.last.text)
         expect(page).to have_content(source_2.url)
       end
+    end
+
+    it 'can navigate to source show page' do
+      first('.search-result-link').click
+
+      params = source_1.attributes.except('created_at',
+                                          'updated_at',
+                                          'body',
+                                          'display_url')
+      expect(page).to have_current_path(source_path(source: params))
     end
   end
 end
