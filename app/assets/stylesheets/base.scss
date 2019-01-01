@@ -15,8 +15,13 @@ body {
   justify-content: space-between;
 }
 
+.edit {
+  display: flex;
+  justify-content: flex-start;
+}
+
 .centered-content {
-  width: 800px;
+  width: 1000px;
   height: 100vh;
   margin: 0 auto;
   text-align: center;
@@ -29,10 +34,14 @@ body {
       align-items: center;
 
       .question-text {
+        display: flex;
+        justify-content: space-between;
       }
       .search-button {
         display: flex;
         justify-content: flex-start;
+        justify-content: space-between;
+        width: 200px;
       }
       .delete-button {
       }
@@ -45,12 +54,15 @@ body {
       }
     }
   }
-
+.topic {
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   .topic {
-    display: flex;
-    width: 100%;
-    margin: 20px;
-    justify-content: space-between;
+    // width: 100%;
+    // margin: 20px;
+
     font-size: 1em;
 
 
@@ -60,6 +72,7 @@ body {
       width: 200px;
     }
   }
+}
 
   ul {
     text-align: left;
