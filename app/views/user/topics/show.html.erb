@@ -7,7 +7,7 @@
         <hr>
         <% @topic.questions.each do |question| %>
             <div class="question">
-              <div class="search-link"><%= link_to search_path(question: question.id) do %>
+              <div class="search-link"><%= link_to search_path(question_id: question.id) do %>
                                             <i class="fa fa-search" aria-hidden="true"></i>
                                           <% end %>
                 <div class="question-text"><%= question.text %></div>

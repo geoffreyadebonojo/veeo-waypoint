@@ -17,7 +17,7 @@ RSpec.feature "Question Search", type: :feature do
       visit '/topics'
 
       within(first('.question', visible: :hidden)) do
-        find('.search-link', visible: :hidden).click
+        find('.search-btn', visible: :hidden).click
       end
 
       expect(current_path).to eq('/search')

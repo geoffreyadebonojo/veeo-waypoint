@@ -3,7 +3,7 @@
       <% questions.each do |question| %>
         <hr>
           <div class="question">
-            <div class="search-link"><%= link_to search_path(question: question.id) do %>
+            <div class="search-link"><%= link_to search_path(question_id: question.id), class: "search-btn" do %>
                                           <i class="fa fa-search" aria-hidden="true"></i>
                                         <% end %>
             </div>
