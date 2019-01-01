@@ -52,9 +52,7 @@ RSpec.configure do |config|
 end
 
 VCR.configure do |config|
-  # TODO: Switch to "new episodes" after we have the configuration working
   # config.default_cassette_options = { :record => :all }
-
   config.ignore_localhost = true
   config.allow_http_connections_when_no_cassette = true
   config.cassette_library_dir = 'spec/cassettes'
