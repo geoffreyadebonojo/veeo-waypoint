@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
 
+  namespace :user do
+    get 'notes/index'
+    get 'notes/create'
+  end
   scope module: :user do
     get  '/search',  to: 'search#index'
     get  '/source',  to: 'sources#show'
     post '/source',  to: 'sources#create'
     get  '/sidebar', to: 'sources/sidebar#show'
-    
+    post '/sources/:source_id/notes', to: 'notes#create', as: 'source_notes'
+
     resources :topics, except: [:new, :edit] do
       resources :questions, except: [:new, :edit, :update, :destroy]
     end
