@@ -32,6 +32,7 @@ body {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
 
       .question-text {
         display: flex;
@@ -46,6 +47,8 @@ body {
       .delete-button {
       }
       .source {
+        display: flex;
+        flex-direction: column;
         padding: 1rem;
         margin: 1rem 0;
         border-radius: 10px;
