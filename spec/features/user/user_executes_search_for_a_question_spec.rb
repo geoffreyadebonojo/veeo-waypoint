@@ -27,10 +27,10 @@ RSpec.feature "Question Search", type: :feature do
   end
 
   describe 'User visiting topics show page' do
-    xit 'can execute a search for a specific question', :vcr do
+    it 'can execute a search for a specific question', :vcr do
       visit "/topics/#{topic.id}"
       within(first('.question')) do
-        click_on(class: 'search-btn')
+        first('.search-btn').click
       end
 
       expect(current_path).to eq('/search')

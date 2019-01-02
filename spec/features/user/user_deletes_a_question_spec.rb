@@ -25,7 +25,7 @@ RSpec.feature "User deleting a question", type: :feature do
           first('.delete-button').click
         end
       end
-    
+
       expect(current_path).to eq('/topics')
       expect(page).to_not have_css('.questions', visible: :hidden, text: 'What is')
     end
@@ -67,7 +67,7 @@ RSpec.feature "User deleting a question", type: :feature do
       end
       sleep 0.05
 
-      expect(current_path).to eq("/topics")
+      expect(current_path).to eq("/topics/#{topic.id}")
       expect(page).to_not have_content(question.text)
     end
 
