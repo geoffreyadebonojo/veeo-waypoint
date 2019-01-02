@@ -51,19 +51,21 @@ RSpec.feature "User deleting a question", type: :feature do
   end
 
   describe "User visiting topic show page" do
-    xit "can delete question after confirming deletion", :js do
+    it "can delete question after confirming deletion", :js do
       within(first('.topic')) do
         click_on topic.title
       end
 
+      sleep 0.05
       expect(current_path).to eq("/topics/#{topic.id}")
       expect(page).to have_content(question.text)
 
       within(first('.question')) do
         page.accept_confirm do
-          click_on(class: "delete-btn")
+          first(".delete-button").click
         end
       end
+      sleep 0.05
 
       expect(current_path).to eq("/topics/#{topic.id}")
       expect(page).to_not have_content(question.text)

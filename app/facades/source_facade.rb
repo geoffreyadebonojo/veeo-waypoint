@@ -1,28 +1,21 @@
-class SourceFacade
+class SourceFacade < SimpleDelegator
   attr_reader :source
 
   def initialize(source)
     @source = source
+    super(source)
   end
 
   def saved?
-    source.persisted?
-  end
-
-  def question_id
-    source.question_id
+    persisted?
   end
 
   def question_text
-    source.question.text
+    question.text
   end
 
   def new_note
     Note.new()
-  end
-
-  def notes
-    source.notes.reverse
   end
 
   def source_params
@@ -34,10 +27,6 @@ class SourceFacade
   end
 
   def topic_title
-    source.topic.title
-  end
-
-  def topic
-    source.topic
+    topic.title
   end
 end
