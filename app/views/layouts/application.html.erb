@@ -13,10 +13,14 @@
   <body>
     <nav class="navbar">
       <div class="nav-link">
-        <% if current_user  %>
-          logged in as <%= current_user.first_name %> <%= current_user.last_name %>
+        <div class="logged-in">
+          <% if current_user  %>
+            Logged in as <%= current_user.first_name %> <%= current_user.last_name %>
+            <%= link_to 'Your Topics', topics_path %>
+        </div>
+        <div class="log-out">
           <%= link_to 'Logout', '/logout'  %>
-          <%= link_to 'Your Topics', topics_path %>
+        </div>
         <% else %>
           <%= link_to 'Login', login_path %>
         <% end %>
