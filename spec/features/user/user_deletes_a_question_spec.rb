@@ -61,7 +61,7 @@ RSpec.feature "User deleting a question", type: :feature do
 
       within(first('.question')) do
         page.accept_confirm do
-          first('.delete-button').click
+          click_on(class: "delete-btn")
         end
       end
 
