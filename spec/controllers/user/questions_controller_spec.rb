@@ -14,6 +14,7 @@ RSpec.describe User::QuestionsController, type: :controller do
         .to receive(:create)
         .with(text: question)
         .and_return(build_stubbed(:question, topic: topic))
+      request.env['HTTP_REFERER'] = "/"
     end
     subject(:response) { post :create, params: { topic_id: topic.id} }
     describe "response" do
