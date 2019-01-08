@@ -16,7 +16,7 @@
         <div class="logged-in">
           <% if current_user  %>
             Logged in as <%= current_user.first_name %> <%= current_user.last_name %>
-            <%= link_to 'Your Topics', topics_path %>
+            <%= link_to 'All Topics', topics_path %>
         </div>
         <div class="log-out">
           <%= link_to 'Logout', '/logout'  %>
