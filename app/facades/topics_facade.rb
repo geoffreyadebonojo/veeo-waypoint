@@ -9,7 +9,7 @@ class TopicsFacade
   end
 
   def new_topic
-   Topic.new
+    Topic.new
   end
 
   def new_question

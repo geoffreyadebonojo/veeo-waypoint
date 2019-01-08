@@ -1,6 +1,13 @@
 <div class="centered-content">
     <h1 style="text-align: center;"><%= @topic.title %></h1>
-
+    <div class="topics-link"> 
+      <%= link_to 'All Topics', topics_path %> 
+    </div>
+    <div class="new-question">
+      <%= render '/user/questions/question_form',
+          topic: @topic,
+          question: @facade.new_question %>
+    </div>
     <div class="list">
 
         <h2 style="text-align: center;">Questions and Saved Sources</h2>

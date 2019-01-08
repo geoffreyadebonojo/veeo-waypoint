@@ -4,6 +4,7 @@ class User::TopicsController < User::ApplicationController
   end
 
   def show
+    @facade = TopicsFacade.new(current_user)
     @topic = Topic.find(params[:id])
   end
 
