@@ -5,7 +5,7 @@
         <button class="collapsible" ><i class="fa fa-angle-right"></i></button>
         <div class="title">
           <div class="link-and-edit">
-            <%= link_to(topic.title, "/topics/#{topic.id}", class: "") %>
+            <%= link_to(topic.title, "/topics/#{topic.id}", class: "link-btn") %>
             <%= render '/user/topics/edit_topic_form', topic: topic %>
           </div>
           <%= link_to topic_path(topic), method: :delete, data: {confirm: "Are you sure you want to delete #{topic.title} and everything it leads to?"},  class: "delete-topic-btn" do %>
@@ -16,7 +16,7 @@
               topic: topic,
               question: new_question %>
       </div>
-      
+
       <div class="questions" style="display: none;">
       <%= render '/user/questions/simple_question_list',
             questions: topic.questions %>
