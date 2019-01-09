@@ -10,20 +10,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <nav class="navbar">
-      <div class="nav-link">
-        <% if current_user  %>
-        <div class="logged-in">
-          <%= link_to 'All Topics', topics_path, class: "cool-button"  %>
-        </div>
-        <div class="log-out">
-          <span class="nav-text">Logged in as <%= current_user.first_name%></span>
-          <%= link_to 'Logout', '/logout', class: "cool-button"  %>
-        </div>
-        <% end %>
-      </div>
-    </nav>
+  <body class="login-body">
     <%= yield %>
   </body>
 </html>

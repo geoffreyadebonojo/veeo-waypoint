@@ -34,13 +34,13 @@ RSpec.feature "User topic management", type: :feature do
     end
 
     it 'sees each question' do
-      within(first(".question")) do
+      within(first(".question-box")) do
         expect(page).to have_content(topic.questions.first.text)
         expect(page).to have_content(source_1.title)
         expect(page).to have_content(source_1.display_url)
         expect(page).to have_content(source_1.snippet)
       end
-      within(all(".question")[1]) do
+      within(all(".question-box")[1]) do
         expect(page).to have_content(topic.questions.last.text)
         expect(page).to have_content(source_2.url)
       end

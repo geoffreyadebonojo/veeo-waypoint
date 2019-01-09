@@ -1,0 +1,14 @@
+<div class="question">
+  <div class="search-link">
+    <%= link_to search_path(question_id: question.id), class: "search-btn" do %>
+      <i class="fa fa-search" aria-hidden="true"></i>
+    <% end %>
+  </div>
+  <h3><span class="question-text"><%= question.text %></span></h3>
+
+  <div class="delete-button">
+    <%= link_to question_path(question), method: :delete, data: {confirm: "Are you sure you want to delete #{question.text} and everything it leads to?"}, class: "delete-btn" do %>
+      <i class="fa fa-trash" aria-hidden="true"></i>
+    <% end %>
+  </div>
+</div>
