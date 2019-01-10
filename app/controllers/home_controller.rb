@@ -2,6 +2,7 @@ class HomeController < ApplicationController
 
   def index
     redirect_to topics_path if current_user
-    render layout: 'login'
+    # binding.pry
+    render layout: 'login' unless performed?
   end
 end

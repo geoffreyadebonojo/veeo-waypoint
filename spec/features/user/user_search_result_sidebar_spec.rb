@@ -30,7 +30,7 @@ RSpec.feature "Source show page", type: :feature do
 
     scenario "user can add a note to a saved source" do
       fill_in 'note[text]', with: "This is a brand new note"
-      click_on "Save Note"
+      click_on "Save"
 
       within '#notes' do
         expect(page).to have_content("This is a brand new note")
