@@ -1,44 +1,31 @@
 <div class="centered-content">
     <h1 style="text-align: center;"><%= @topic.title %></h1>
-    <div class="topics-link"> 
-      <%= link_to 'All Topics', topics_path %> 
-    </div>
+    <!-- <div class="topics-link">
+      <%= link_to 'All Topics', topics_path %>
+    </div> -->
     <div class="new-question">
-      <%= render '/user/questions/question_form',
-          topic: @topic,
+      <%= render '/user/questions/question_form', topic: @topic,
           question: @facade.new_question %>
     </div>
     <div class="list">
-
-        <h2 style="text-align: center;">Questions and Saved Sources</h2>
-        <hr>
-        <% @topic.questions.each do |question| %>
-            <div class="question">
-              <div class="search-link"><%= link_to search_path(question_id: question.id), class: "search-btn" do %>
-                                            <i class="fa fa-search" aria-hidden="true"></i>
-                                          <% end %>
-                <div class="question-text"><%= question.text %></div>
-              </div>
-              <div class="delete-button"><%= link_to question_path(question), method: :delete, data: {confirm: "Are you sure you want to delete #{question.text} and everything it leads to?"} do %>
-                                            <i class="fa fa-trash" aria-hidden="true"></i>
-                                          <% end %>
-              </div>
-
-
-              <% question.sources.each do |source| %>
-                <%= link_to source_path(source: source.params),
-                      class: "search-result-link" do %>
-
-                  <div class="source">
-                    <h3><%= source.title %></h3>
-                    <span class="url"><%= source.url %><br /></span>
-                    <%= source.snippet %>
-                  </div>
-
-                <% end %>
+      <!-- <h2 style="text-align: center;">Questions and Saved Sources</h2> -->
+      <% @topic.questions.each do |question| %>
+        <div class="question-box">
+          <%= render '/user/questions/question_row', question: question %>
+          <div class="sources">
+            <% question.sources.each do |source| %>
+              <%= link_to source_path(source: source.params),
+                    class: "search-result-link" do %>
+                <div class="source">
+                  <h3><%= source.title %></h3>
+                  <span class="url"><%= source.url %><br /></span>
+                  <%= source.snippet %>
+                </div>
               <% end %>
-            </div>
-        <hr />
-        <% end %>
+            <% end %>
+          </div>
+        </div>
+
+      <% end %>
     </div>
 </div>

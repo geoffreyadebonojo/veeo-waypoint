@@ -21,7 +21,8 @@ RSpec.feature "Topic Index Page", type: :feature do
 
           within(first('.topic')) do
             page.accept_confirm do
-              click_on 'Delete Topic'
+              first('.delete-topic-btn').click
+              # click_on 'Delete Topic'
             end
           end
 
@@ -36,7 +37,8 @@ RSpec.feature "Topic Index Page", type: :feature do
 
           within(first('.topic')) do
             page.dismiss_confirm do
-              click_on 'Delete Topic'
+              first('.delete-topic-btn').click
+              # click_on 'Delete Topic'
             end
           end
 

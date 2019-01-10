@@ -3,8 +3,34 @@
 
   <%= render '/user/topics/new_topic_form',
         topic: @facade.new_topic %>
-        
+
   <%= render '/user/topics/topic_list',
         topics: @facade.topics,
         new_question: @facade.new_question %>
 </div>
+
+
+<script>
+var collapsibleElement = document.getElementsByClassName("collapsible");
+var i;
+var questions = document.getElementsByClassName("questions");
+
+for (i = 0; i<collapsibleElement.length; i++) {
+
+  collapsibleElement[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+
+    var content = this.parentNode.nextElementSibling;
+
+    if (content.style.display === "block") {
+      this.innerHTML = '<i class="fa fa-angle-right"></i>';
+      content.style.display = "none";
+
+    } else {
+      this.innerHTML = '<i class="fa fa-angle-down"></i>';
+      content.style.display = "block";
+    };
+  })
+}
+
+</script>

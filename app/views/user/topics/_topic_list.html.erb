@@ -1,47 +1,26 @@
 <div class="topics">
   <% topics.each do |topic|%>
-    <div class="topic">
-      <button class="collapsible" ><i class="fa fa-angle-right"></i></button>
-      <div class="title"><%= link_to(topic.title, "/topics/#{topic.id}") %></div>
-      <%= button_to "Delete Topic", topic_path(topic), method: :delete, data: {confirm: "Are you sure you want to delete #{topic.title} and everything it leads to?"}, id: "delete-topic-btn" %>
+    <div class="topic-box">
+      <div class="topic">
+        <button class="collapsible" ><i class="fa fa-angle-right"></i></button>
+        <div class="title">
+          <div class="link-and-edit">
+            <%= link_to(topic.title, "/topics/#{topic.id}", class: "link-btn") %>
+            <%= render '/user/topics/edit_topic_form', topic: topic %>
+          </div>
+          <%= link_to topic_path(topic), method: :delete, data: {confirm: "Are you sure you want to delete #{topic.title} and everything it leads to?"},  class: "delete-topic-btn" do %>
+          <i class="fa fa-trash" aria-hidden="true"></i>
+          <% end %>
+        </div>
+        <%= render '/user/questions/question_form',
+              topic: topic,
+              question: new_question %>
+      </div>
 
-      <%= render '/user/topics/edit_topic_form',
-            topic: topic %>
-      <%= render '/user/questions/question_form',
-            topic: topic,
-            question: new_question %>
+      <div class="questions" style="display: none;">
+      <%= render '/user/questions/simple_question_list',
+            questions: topic.questions %>
       </div>
     </div>
-
-    <div class="questions" style="display: none;">
-    <%= render '/user/questions/simple_question_list',
-          questions: topic.questions %>
-    </div>
-    <hr />
   <% end %>
 </div>
-
-<script>
-var collapsibleElement = document.getElementsByClassName("collapsible");
-var i;
-var questions = document.getElementsByClassName("questions");
-
-for (i = 0; i<collapsibleElement.length; i++) {
-
-  collapsibleElement[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-
-    var content = this.parentNode.nextElementSibling;
-
-    if (content.style.display === "block") {
-      this.innerHTML = '<i class="fa fa-angle-right"></i>';
-      content.style.display = "none";
-
-    } else {
-      this.innerHTML = '<i class="fa fa-angle-down"></i>';
-      content.style.display = "block";
-    };
-  })
-}
-
-</script>

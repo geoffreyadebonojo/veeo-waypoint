@@ -1,20 +1,5 @@
-<div class="centered-content">
-  <div class="list">
-      <% questions.each do |question| %>
-        <hr>
-          <div class="question">
-            <div class="search-link"><%= link_to search_path(question_id: question.id), class: "search-btn" do %>
-                                          <i class="fa fa-search" aria-hidden="true"></i>
-                                        <% end %>
-            </div>
-            <div class="question-text"><%= question.text %></div>
-
-            <div class="delete-button"><%= link_to question_path(question), method: :delete, data: {confirm: "Are you sure you want to delete #{question.text} and everything it leads to?"}, class: "delete-btn" do %>
-                                          <i class="fa fa-trash" aria-hidden="true"></i>
-                                        <% end %>
-            </div>
-          </div>
-        </hr>
-      <% end %>
-  </div>
+<div class="list">
+  <% questions.each do |question| %>
+    <%= render '/user/questions/question_row', question: question %>
+  <% end %>
 </div>

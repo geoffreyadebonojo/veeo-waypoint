@@ -1,22 +1,43 @@
-<% if @facade.saved? %>
-  <h3><%= link_to @facade.topic_title, topic_path(@facade.topic), target: "_parent"%></h3>
+</br>
+<%# if @facade.saved? %>
+  <div class="source-show-header">
+    <h3><%= link_to @facade.topic_title, topic_path(@facade.topic), target: "_parent", class:'link-btn'%></h3>
 
-  <h4><%= @facade.question_text %></h4>
-  <div class="new-note-form">
-    <%= form_for [@facade.source, @facade.new_note] do |f| %>
-      <%= f.text_area :text, placeholder: "Something worth remembering? Take a note.", required: true, class: "new-note-field" %>
-      <%= f.submit "Save Note"%>
-    <% end %>
+    <div class="source-save-box">
+      <% if @facade.saved? %>
+        saved
+      <% else %>
+        <%= button_to "Save", question_sources_path(question_id: @facade.question_id),
+        params: { source: @facade.source_params },
+        method: :post,
+        id: "save-source",
+        class: "cool-button" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="sidebar-question"><%= @facade.question_text %></div>
+<% if @facade.saved? %>
+  <div class="new-note-container">
+    <div class="new-note-form">
+      <%= form_for [@facade.source, @facade.new_note] do |f| %>
+        <%= f.text_area :text, placeholder: "Something worth remembering? Take a note.", required: true, class: "new-note-field" %>
+        <%= f.submit "Save", class: "save-note"%>
+      <% end %>
+    </div>
   </div>
   <div id="notes">
+    <h4 style="text-align:center;">Saved Notes</h4>
     <% @facade.notes.each do |note| %>
-      <%= note.text %> <br />
-      <hr />
+      <div class="note">
+        <%= note.text %>
+      </div>
     <% end %>
   </div>
-<% else %>
-  <%= button_to "Save", question_sources_path(question_id: @facade.question_id),
+<% end %>
+<%# else %>
+  <!-- <%= button_to "Save", question_sources_path(question_id: @facade.question_id),
                         params: { source: @facade.source_params },
                         method: :post,
-                        id: "save-source" %>
-<% end %>
+                        id: "save-source",
+                        class: "cool-button" %> -->
+<%# end %>
