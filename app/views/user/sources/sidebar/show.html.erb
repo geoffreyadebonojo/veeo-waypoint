@@ -1,9 +1,7 @@
 </br>
 <% if @facade.saved? %>
-  <h3><%= link_to @facade.topic_title, topic_path(@facade.topic), target: "_parent", class:'topic-btn'%></h3>
-
-</br>
-  <h4 style="text-align:center;"><%= @facade.question_text %></h4>
+  <h3><%= link_to @facade.topic_title, topic_path(@facade.topic), target: "_parent", class:'link-btn'%></h3>
+  <div class="sidebar-question"><%= @facade.question_text %></div>
   <div class="new-note-form">
     <%= form_for [@facade.source, @facade.new_note] do |f| %>
       <%= f.text_area :text, placeholder: "Something worth remembering? Take a note.", required: true, class: "new-note-field" %>

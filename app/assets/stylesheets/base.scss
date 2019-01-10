@@ -195,7 +195,8 @@ body {
     justify-content: space-between;
     align-items: center;
     font-size: 1em;
-    height: 6em;
+    // height: 6em;
+
     .question-form-field {
       margin-right: 1em;
     }
@@ -364,18 +365,32 @@ button.collapsible {
 }
 
 .link-btn {
-  margin: .1em 2em;
-  width: 30%;
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0.4em 1.5em;
+  // margin: .1em 2em;
+  // // width: 30%;
+  // display: flex;
+  // flex-wrap: wrap;
+  // padding: 0.4em 1.5em;
   color: darkblue;
-  font-weight:100;
+  font-weight:600;
   font-family: "Open Sans";
-  border: solid thin #63E7E7;
+  // border: solid thin #63E7E7;
   text-decoration: none;
-  border-radius: 2em;
+  // border-radius: 2em;
   transition: 0.2s;
+}
+
+.link-btn:hover {
+  color: #63E7E7;
+}
+
+.small-label {
+  font-size: 0.8em;
+  color: #aaa;
+}
+
+.sidebar-question{
+  width: 90%;
+  margin-top: 0.5em;
 }
 
 
